@@ -27,7 +27,8 @@ Backend dev guy, often in and out of the Python ecosystem. Been coding for about
 
 ![Postgres](https://img.shields.io/badge/Postgres-%23316192.svg?logo=postgresql&logoColor=white)
 
-![AWS](https://custom-icon-badges.demolab.com/badge/AWS-%23FF9900.svg?logo=aws&logoColor=white)
+<!-- 
+![AWS](https://custom-icon-badges.demolab.com/badge/AWS-%23FF9900.svg?logo=aws&logoColor=white) -->
 
 ### <center>Recent Projects</center>
 
