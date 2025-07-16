@@ -31,9 +31,13 @@ Backend dev guy, often in and out of the Python ecosystem. Been coding for about
 
 ### <center>Recent Projects</center>
 
+---
+
 - [Examination management API](https://github.com/joseph-ezekiel/vmlc_api)
 
 ### <center>Contact</center>
+
+---
 
 LinkedIn: [Joseph Ezekiel](https://www.linkedin.com/in/joseph-ezekiel-profile/)
 
@@ -46,6 +50,8 @@ Discord: [@joseph-ezekielolujay](https://discord.com/users/931582976272236564)
 
 ---
 
-💡**Interesting fact:**
+**Interesting fact:**
+
+---
 
 Robots and autonomous systems, I love them. That's how I drove myself to earn a bachelor's in **mechatronics engineering**, and that pretty much set me up for life with foundations in electrical and electronics and <u>coding.</u>
