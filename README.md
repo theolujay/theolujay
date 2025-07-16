@@ -43,7 +43,7 @@ LinkedIn: [Joseph Ezekiel](https://www.linkedin.com/in/joseph-ezekiel-profile/)
 
 Email: ezekieloluj@gmail.com
 
-Discord: [@joseph-ezekielolujay](https://discord.com/users/931582976272236564)
+Discord: [@olujay](https://discord.com/users/931582976272236564)
 
 [![LinkedIn](https://custom-icon-badges.demolab.com/badge/LinkedIn-0A66C2?logo=linkedin-white&logoColor=fff)](https://www.linkedin.com/in/joseph-ezekiel-profile/) [![Gmail](https://img.shields.io/badge/Gmail-D14836?logo=gmail&logoColor=white)](ezekieloluj@gmail.com) 
 [![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?&logo=discord&logoColor=white)](https://discord.com/users/931582976272236564)
