@@ -19,6 +19,8 @@ Backend dev guy, often in and out of the Python ecosystem. Been coding for about
 
 ### <center>Stack</center>
 
+---
+
 ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff)
 
 ![Django](https://img.shields.io/badge/Django-%23092E20.svg?logo=django&logoColor=white) 
@@ -27,11 +29,11 @@ Backend dev guy, often in and out of the Python ecosystem. Been coding for about
 
 ![AWS](https://custom-icon-badges.demolab.com/badge/AWS-%23FF9900.svg?logo=aws&logoColor=white)
 
-### Recent Projects
+### <center>Recent Projects</center>
 
 - [Examination management API](https://github.com/joseph-ezekiel/vmlc_api)
 
-### Contact
+### <center>Contact</center>
 
 LinkedIn: [Joseph Ezekiel](https://www.linkedin.com/in/joseph-ezekiel-profile/)
 
@@ -44,4 +46,6 @@ Discord: [@joseph-ezekielolujay](https://discord.com/users/931582976272236564)
 
 ---
 
-💡**Interesting fact:** Robots and autonomous systems, I love them. That's how I drove myself to earn a bachelor's in **mechatronics engineering**, and that pretty much set me up for life with foundations in electrical and electronics and <u>coding.</u>
+💡**Interesting fact:**
+
+Robots and autonomous systems, I love them. That's how I drove myself to earn a bachelor's in **mechatronics engineering**, and that pretty much set me up for life with foundations in electrical and electronics and <u>coding.</u>
