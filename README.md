@@ -73,7 +73,7 @@ Backend guy, often in and out of the Python ecosystem. Been coding for about a y
 
 ---
 
-Robots and autonomous systems, I love them. That's how I drove myself to earn a bachelor's in **mechatronics engineering**, and that pretty much set me up for life with foundations in electrical and electronics and <u>coding.</u>
+Robots and autonomous systems... I love them! So I went to earn a *B.Eng* in **mechatronics engineering**, which set me up for life in electrical and electronics and <u>coding.</u> Some days I'm tinkering with solar energy and automation systems.
 
 
 #### <center>Tools</center>
