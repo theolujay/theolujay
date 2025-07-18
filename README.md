@@ -1,20 +1,6 @@
 ## I am...
-<!--
-**joseph-ezekiel/joseph-ezekiel** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
-
-Backend guy, often in and out of the Python ecosystem. Been coding for about a year now and drinking coffee even way longer. I give life to software ideas - although you may not see them, given they're often "in the back," somewhere on the web. **If you're hiring**, let's chat.
+A backend guy, often in and out of the Python ecosystem. I’ve been coding for about a year now—and drinking coffee for even longer. I give life to software ideas—although you may not see them, given they're often "in the back," somewhere on the web. **If you're hiring**, let's chat.
 
 ### <center>Tech Stack</center>
 
@@ -28,15 +14,26 @@ Backend guy, often in and out of the Python ecosystem. Been coding for about a y
 
 ![Postgres](https://img.shields.io/badge/Postgres-%23316192.svg?logo=postgresql&logoColor=white)
 
+
+
 </sub>
 
-### <center>Recent Projects</center>
+### <center>Stuff I've Built</center>
 
 ---
 
-- [Examination management API](https://github.com/joseph-ezekiel/vmlc_api)
+- [Examination management API](https://github.com/joseph-ezekiel/vmlc_api) - A Django-based math competition platform that powers the registration,
+examination, scoring, and leaderboard systems for a multi-stage
+mathematics competition.
 
-### <center>Contact</center>
+### <center>GitHub Stats</center>
+
+---
+
+![Joseph's GitHub Stats](https://github-readme-stats.vercel.app/api?username=joseph-ezekiel&show_icons=true&theme=dark)
+
+
+### <center>Reach Me</center>
 
 ---
 
@@ -57,7 +54,7 @@ Backend guy, often in and out of the Python ecosystem. Been coding for about a y
 
 - Discord - [@olujay](https://discord.com/users/931582976272236564)
 
-### <center>Learning...</center>
+### <center>What I'm Up To<center>
 
 ---
 
@@ -69,11 +66,11 @@ Backend guy, often in and out of the Python ecosystem. Been coding for about a y
 
 </sub>
 
-### <center>**Fact**</center>
+### <center>**Origin Story**</center>
 
 ---
 
-Robots and autonomous systems... I love them! So I went to earn a *B.Eng* in **mechatronics engineering**, which set me up for life in electrical and electronics and <u>coding.</u> Some days I'm tinkering with solar energy and automation systems.
+Robots and autonomous systems... I love them! So I went to earn a *B.Eng* in **mechatronics engineering**, which set me up for life in electrical and electronics and <u>coding.</u>
 
 
 #### <center>Tools</center>
@@ -91,11 +88,11 @@ Robots and autonomous systems... I love them! So I went to earn a *B.Eng* in **m
 
 **AI:**
 
-[![ChatGPT](https://img.shields.io/badge/ChatGPT-74aa9c?logo=openai&logoColor=white)](#) [![Claude](https://img.shields.io/badge/Claude-D97757?logo=claude&logoColor=fff)](#) [![Deepseek](https://custom-icon-badges.demolab.com/badge/Deepseek-4D6BFF?logo=deepseek&logoColor=fff)](#)
+[![ChatGPT](https://img.shields.io/badge/ChatGPT-74aa9c?logo=openai&logoColor=white)](#) [![Claude](https://img.shields.io/badge/Claude-D97757?logo=claude&logoColor=fff)](#) [![Deepseek](https://custom-icon-badges.demolab.com/badge/Deepseek-4D6BFF?logo=deepseek&logoColor=fff)](#) [![Google Gemini](https://img.shields.io/badge/Google%20Gemini-886FBF?logo=googlegemini&logoColor=fff)](#)
 
 **Docs & Notes:**
 
-[![Notion](https://img.shields.io/badge/Notion-000?logo=notion&logoColor=fff)](#) [![Read the Docs](https://img.shields.io/badge/Read%20the%20Docs-8CA1AF?logo=readthedocs&logoColor=fff)](#) [![Sphinx](https://img.shields.io/badge/Sphinx-000?logo=sphinx&logoColor=fff)](#)
+[![Notion](https://img.shields.io/badge/Notion-fff?logo=notion&logoColor=000)](#) [![Read the Docs](https://img.shields.io/badge/Readthedocs-%23000000.svg?logo=readthedocs&logoColor=fff)](#) [![Sphinx](https://img.shields.io/badge/Sphinx-3C3B39?logo=sphinx&logoColor=fff)](#)
 
 **OS:**
 
@@ -103,11 +100,13 @@ Robots and autonomous systems... I love them! So I went to earn a *B.Eng* in **m
 
 **Browser:**
 
-[![Arc](https://img.shields.io/badge/Arc-FCBFBD?logo=arc&logoColor=000)](#) [![Google Chrome](https://img.shields.io/badge/Google%20Chrome-4285F4?logo=GoogleChrome&logoColor=white)](#)
+[![Arc](https://img.shields.io/badge/Arc-092230?logo=arc&logoColor=fff)](#) [![Google Chrome](https://img.shields.io/badge/Google%20Chrome-4285F4?logo=GoogleChrome&logoColor=white)](#)
+
 
 **Edu:**
 
-[![Coursera](https://img.shields.io/badge/Coursera-0056D2?logo=coursera&logoColor=fff)](#) [![freeCodeCamp](https://img.shields.io/badge/freeCodeCamp-0A0A23?logo=freecodecamp&logoColor=fff)](#) [![Pluralsight](https://img.shields.io/badge/Pluralsight-F15B2A?logo=pluralsight&logoColor=fff)](#)
+[![Datacamp](https://img.shields.io/badge/Datacamp-05192D?&logo=datacamp&logoColor=03E860)](#) [![Coursera](https://img.shields.io/badge/Coursera-0056D2?logo=coursera&logoColor=fff)](#) [![freeCodeCamp](https://img.shields.io/badge/freeCodeCamp-0A0A23?logo=freecodecamp&logoColor=fff)](#) [![Pluralsight](https://img.shields.io/badge/Pluralsight-F15B2A?logo=pluralsight&logoColor=fff)](#)
 
 </sub>
 
+> 💡Fun bit: I sometimes code with [Martin Miller's songs](https://www.youtube.com/watch?v=4LHCDU4NFr0&si=t_hvw-DTVyZiRU-J) playing in the background. 
