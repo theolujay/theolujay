@@ -1,6 +1,6 @@
 ## I am...
 
-A backend guy, often in and out of the Python ecosystem. I’ve been coding for about a year now, and drinking coffee for even longer. I give life to software ideas—although you may not see them working "in the back," somewhere on the web. **If you're hiring**, let's chat.
+A backend guy, often in and out of the Python ecosystem. Coffee on the side, I give life to software ideas. You may not see them working "in the back," somewhere on the web. *Think databases, automation, APIs, business logic.* **If you're hiring**, let's chat.
 
 ### <center>Skills & Tech</center>
 
