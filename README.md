@@ -1,37 +1,35 @@
 ## I am...
 
-A backend guy, often in and out of the Python ecosystem. I’ve been coding for about a year now—and drinking coffee for even longer. I give life to software ideas—although you may not see them, given they're often "in the back," somewhere on the web. **If you're hiring**, let's chat.
+A backend guy, often in and out of the Python ecosystem. I’ve been coding for about a year now, and drinking coffee for even longer. I give life to software ideas—although you may not see them working "in the back," somewhere on the web. **If you're hiring**, let's chat.
 
-### <center>Tech Stack</center>
+### <center>Skills & Tech</center>
 
 ---
 
 <sub>
 
-![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff)
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff) ![Django](https://img.shields.io/badge/Django-%23092E20.svg?logo=django&logoColor=white) ![Postgres](https://img.shields.io/badge/Postgres-%23316192.svg?logo=postgresql&logoColor=white) [![Git](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=fff)](#)
 
-![Django](https://img.shields.io/badge/Django-%23092E20.svg?logo=django&logoColor=white) 
-
-![Postgres](https://img.shields.io/badge/Postgres-%23316192.svg?logo=postgresql&logoColor=white)
-
+[![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff)](#) [![AWS](https://custom-icon-badges.demolab.com/badge/AWS-%23FF9900.svg?logo=aws&logoColor=white)](#) [![Postman](https://img.shields.io/badge/Postman-FF6C37?logo=postman&logoColor=white)](#)
 
 
 </sub>
 
-### <center>Stuff I've Built</center>
+### <center>Some Stuff I Built</center>
 
 ---
 
-- [Examination management API](https://github.com/joseph-ezekiel/vmlc_api) - A Django-based math competition platform that powers the registration,
-examination, scoring, and leaderboard systems for a multi-stage
-mathematics competition.
+- [Examination management API](https://github.com/olujay/vmlc_api) - A RESTful API for a competition platform with multi-stage exams, automated scoring, and leaderboard management.
 
-### <center>GitHub Stats</center>
+- [Grateful For API](https://github.com/theolujay/grateful_for) - Backend service for a journaling app with JWT & Google OAuth, personal analytics, and a randomized community feed.
+
+### <center>GitHub Activity</center>
 
 ---
 
-![Joseph's GitHub Stats](https://github-readme-stats.vercel.app/api?username=joseph-ezekiel&show_icons=true&theme=dark)
+![Joseph's GitHub Activity](https://github-readme-stats.vercel.app/api?username=theolujay&show_icons=true&theme=dark)
 
+![Joseph's GitHub Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=theolujay&langs_count=5&layout=compact&theme=dark)
 
 ### <center>Reach Me</center>
 
@@ -39,18 +37,18 @@ mathematics competition.
 
 <sub>
 
- [![Gmail](https://img.shields.io/badge/Gmail-D14836?logo=gmail&logoColor=white)](ezekieloluj@gmail.com) [![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?logo=whatsapp&logoColor=white)](https://wa.me/qr/O65P4ANF2TQ7E1) [![LinkedIn](https://custom-icon-badges.demolab.com/badge/LinkedIn-0A66C2?logo=linkedin-white&logoColor=fff)](https://www.linkedin.com/in/joseph-ezekiel-profile/) [![X](https://img.shields.io/badge/X-%23000000.svg?logo=X&logoColor=white)](https://x.com/olujay_creative) 
+ [![Gmail](https://img.shields.io/badge/Gmail-D14836?logo=gmail&logoColor=white)](theolujay@gmail.com) [![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?logo=whatsapp&logoColor=white)](https://wa.me/qr/O65P4ANF2TQ7E1) [![LinkedIn](https://custom-icon-badges.demolab.com/badge/LinkedIn-0A66C2?logo=linkedin-white&logoColor=fff)](https://www.linkedin.com/in/joseph-ezekiel-profile/) [![X](https://img.shields.io/badge/X-%23000000.svg?logo=X&logoColor=white)](https://x.com/olujay_creative) 
 [![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?&logo=discord&logoColor=white)](https://discord.com/users/931582976272236564)
 
 </sub>
 
-- Email - ezekieloluj@gmail.com
+- Email - theolujay@gmail.com
 
 - WhatsApp - [+234 90 2139 0950](https://wa.me/qr/O65P4ANF2TQ7E1)
 
 - LinkedIn - [Joseph Ezekiel](https://www.linkedin.com/in/joseph-ezekiel-profile/) 
 
-- X - [@olujay_creative](https://x.com/olujay_creative)
+- X - [@theolujay](https://x.com/olujay_creative)
 
 - Discord - [@olujay](https://discord.com/users/931582976272236564)
 
@@ -60,9 +58,7 @@ mathematics competition.
 
 <sub>
 
-[![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff)](#) [![AWS](https://custom-icon-badges.demolab.com/badge/AWS-%23FF9900.svg?logo=aws&logoColor=white)](#) [![GraphQL](https://img.shields.io/badge/GraphQL-E10098?logo=graphql&logoColor=fff)](#)
-
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000)](#) [![React](https://img.shields.io/badge/React-%2320232a.svg?logo=react&logoColor=%2361DAFB)](#) [![FastAPI](https://img.shields.io/badge/FastAPI-009485.svg?logo=fastapi&logoColor=white)](#) 
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000)](#) [![React](https://img.shields.io/badge/React-%2320232a.svg?logo=react&logoColor=%2361DAFB)](#) [![FastAPI](https://img.shields.io/badge/FastAPI-009485.svg?logo=fastapi&logoColor=white)](#) [![GraphQL](https://img.shields.io/badge/GraphQL-E10098?logo=graphql&logoColor=fff)](#)
 
 </sub>
 
