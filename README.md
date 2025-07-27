@@ -19,17 +19,15 @@ A backend guy, often in and out of the Python ecosystem. Coffee on the side, I g
 
 ---
 
-- [Examination management API](https://github.com/olujay/vmlc_api) - A RESTful API for a competition platform with multi-stage exams, automated scoring, and leaderboard management.
-
 - [Grateful For API](https://github.com/theolujay/grateful_for) - Backend service for a journaling app with JWT & Google OAuth, personal analytics, and a randomized community feed.
+
+- [Examination management API](https://github.com/olujay/vmlc_api) - A RESTful API for a competition platform with multi-stage exams, automated scoring, and leaderboard management.
 
 ### <center>GitHub Activity</center>
 
 ---
 
-![Joseph's GitHub Activity](https://github-readme-stats.vercel.app/api?username=theolujay&show_icons=true&theme=dark)
-
-![Joseph's GitHub Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=theolujay&langs_count=5&layout=compact&theme=dark)
+![Joseph's GitHub Activity](https://github-readme-stats.vercel.app/api?username=theolujay&show_icons=true&theme=dark) ![Joseph's GitHub Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=theolujay&langs_count=5&layout=compact&theme=dark)
 
 ### <center>Reach Me</center>
 
@@ -37,7 +35,7 @@ A backend guy, often in and out of the Python ecosystem. Coffee on the side, I g
 
 <sub>
 
- [![Gmail](https://img.shields.io/badge/Gmail-D14836?logo=gmail&logoColor=white)](theolujay@gmail.com) [![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?logo=whatsapp&logoColor=white)](https://wa.me/qr/O65P4ANF2TQ7E1) [![LinkedIn](https://custom-icon-badges.demolab.com/badge/LinkedIn-0A66C2?logo=linkedin-white&logoColor=fff)](https://www.linkedin.com/in/joseph-ezekiel-profile/) [![X](https://img.shields.io/badge/X-%23000000.svg?logo=X&logoColor=white)](https://x.com/olujay_creative) 
+ [![Gmail](https://img.shields.io/badge/Gmail-D14836?logo=gmail&logoColor=white)](theolujay@gmail.com) [![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?logo=whatsapp&logoColor=white)](https://wa.me/qr/O65P4ANF2TQ7E1) [![LinkedIn](https://custom-icon-badges.demolab.com/badge/LinkedIn-0A66C2?logo=linkedin-white&logoColor=fff)](https://www.linkedin.com/in/theolujay/) [![X](https://img.shields.io/badge/X-%23000000.svg?logo=X&logoColor=white)](https://x.com/theolujay) 
 [![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?&logo=discord&logoColor=white)](https://discord.com/users/931582976272236564)
 
 </sub>
@@ -46,9 +44,9 @@ A backend guy, often in and out of the Python ecosystem. Coffee on the side, I g
 
 - WhatsApp - [+234 90 2139 0950](https://wa.me/qr/O65P4ANF2TQ7E1)
 
-- LinkedIn - [Joseph Ezekiel](https://www.linkedin.com/in/joseph-ezekiel-profile/) 
+- LinkedIn - [Joseph Ezekiel](https://www.linkedin.com/in/theolujay) 
 
-- X - [@theolujay](https://x.com/olujay_creative)
+- X - [@theolujay](https://x.com/theolujay)
 
 - Discord - [@olujay](https://discord.com/users/931582976272236564)
 
