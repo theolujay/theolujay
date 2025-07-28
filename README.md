@@ -27,7 +27,9 @@ A backend guy, often in and out of the Python ecosystem. Coffee on the side, I g
 
 ---
 
-![Joseph's GitHub Activity](https://github-readme-stats.vercel.app/api?username=theolujay&show_icons=true&theme=dark) ![Joseph's GitHub Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=theolujay&langs_count=5&layout=compact&theme=dark)
+![Joseph's GitHub Activity](https://github-readme-stats.vercel.app/api?username=theolujay&show_icons=true&theme=dark)
+
+![Joseph's GitHub Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=theolujay&langs_count=5&layout=compact&theme=dark)
 
 ### <center>Reach Me</center>
 
