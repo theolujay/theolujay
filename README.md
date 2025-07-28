@@ -21,7 +21,7 @@ A backend guy, often in and out of the Python ecosystem. Coffee on the side, I g
 
 - [Grateful For API](https://github.com/theolujay/grateful_for) - Backend service for a journaling app with JWT & Google OAuth, personal analytics, and a randomized community feed.
 
-- [Examination management API](https://github.com/olujay/vmlc_api) - A RESTful API for a competition platform with multi-stage exams, automated scoring, and leaderboard management.
+- [Examination management API](https://github.com/theolujay/vmlc_api) - A RESTful API for a competition platform with multi-stage exams, automated scoring, and leaderboard management.
 
 ### <center>GitHub Activity</center>
 
