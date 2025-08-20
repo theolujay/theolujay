@@ -8,9 +8,9 @@ A backend guy, often in and out of the Python ecosystem. Coffee on the side, I g
 
 <sub>
 
-![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff) ![Django](https://img.shields.io/badge/Django-%23092E20.svg?logo=django&logoColor=white) ![Postgres](https://img.shields.io/badge/Postgres-%23316192.svg?logo=postgresql&logoColor=white) [![Git](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=fff)](#)
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff) ![Django](https://img.shields.io/badge/Django-%23092E20.svg?logo=django&logoColor=white) [![FastAPI](https://img.shields.io/badge/FastAPI-009485.svg?logo=fastapi&logoColor=white)](#) [![Bash](https://img.shields.io/badge/Bash-4EAA25?logo=gnubash&logoColor=fff)](#) [![Git](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=fff)](#)
 
-[![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff)](#) [![AWS](https://custom-icon-badges.demolab.com/badge/AWS-%23FF9900.svg?logo=aws&logoColor=white)](#) [![Postman](https://img.shields.io/badge/Postman-FF6C37?logo=postman&logoColor=white)](#)
+[![Postgres](https://img.shields.io/badge/Postgres-%23316192.svg?logo=postgresql&logoColor=white)](#) [![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff)](#)  [![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?logo=github-actions&logoColor=white)](#) [![AWS](https://custom-icon-badges.demolab.com/badge/AWS-%23FF9900.svg?logo=aws&logoColor=white)](#)
 
 
 </sub>
@@ -18,6 +18,8 @@ A backend guy, often in and out of the Python ecosystem. Coffee on the side, I g
 ### <center>Some Stuff I Built</center>
 
 ---
+
+- [Paystack API Wrapper](https://github.com/theolujay/paystack-api-wrapper) - Modern, test-driven open source Python client for the Paystack API. Build to save developers time integrating into Python projects.
 
 - [Grateful For API](https://github.com/theolujay/grateful_for) - Backend service for a journaling app with JWT & Google OAuth, personal analytics, and a randomized community feed.
 
@@ -58,7 +60,7 @@ A backend guy, often in and out of the Python ecosystem. Coffee on the side, I g
 
 <sub>
 
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000)](#) [![React](https://img.shields.io/badge/React-%2320232a.svg?logo=react&logoColor=%2361DAFB)](#) [![FastAPI](https://img.shields.io/badge/FastAPI-009485.svg?logo=fastapi&logoColor=white)](#) [![GraphQL](https://img.shields.io/badge/GraphQL-E10098?logo=graphql&logoColor=fff)](#)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000)](#) [![React](https://img.shields.io/badge/React-%2320232a.svg?logo=react&logoColor=%2361DAFB)](#) [![GraphQL](https://img.shields.io/badge/GraphQL-E10098?logo=graphql&logoColor=fff)](#)
 
 </sub>
 
@@ -92,7 +94,7 @@ Robots and autonomous systems... I love them! So I went to earn a *B.Eng* in **m
 
 **OS:**
 
-[![Windows](https://custom-icon-badges.demolab.com/badge/Windows-0078D6?logo=windows11&logoColor=white)](#) [![Android](https://img.shields.io/badge/Android-3DDC84?logo=android&logoColor=white)](#)
+[![Windows](https://custom-icon-badges.demolab.com/badge/Windows-0078D6?logo=windows11&logoColor=white)](#) [![Android](https://img.shields.io/badge/Android-3DDC84?logo=android&logoColor=white)](#) [![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?logo=ubuntu&logoColor=white)](#)
 
 **Browser:**
 
