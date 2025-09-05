@@ -1,110 +1,54 @@
-## I am...
+## You found Joseph Ezekiel
 
-A backend guy, often in and out of the Python ecosystem. Coffee on the side, I give life to software ideas. *Think databases, automation, APIs, business logic.* **If you're hiring**, let's chat.
-
-### <center>Skills & Tech</center>
-
----
-
-<sub>
-
-![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff) ![Django](https://img.shields.io/badge/Django-%23092E20.svg?logo=django&logoColor=white) [![FastAPI](https://img.shields.io/badge/FastAPI-009485.svg?logo=fastapi&logoColor=white)](#) [![Bash](https://img.shields.io/badge/Bash-4EAA25?logo=gnubash&logoColor=fff)](#) [![Git](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=fff)](#)
-
-[![Postgres](https://img.shields.io/badge/Postgres-%23316192.svg?logo=postgresql&logoColor=white)](#) [![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff)](#)  [![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?logo=github-actions&logoColor=white)](#) [![AWS](https://custom-icon-badges.demolab.com/badge/AWS-%23FF9900.svg?logo=aws&logoColor=white)](#)
+Backend Engineer writing logic, shipping APIs and systems teams can actually work with and maintain.  
+Python is home base (Django \ FastAPI / Flask), and I live in databases, Docker, CI/CD, and AWS deployments.  
 
 
-</sub>
+### Core Skills
 
-### <center>Some Stuff I Built</center>
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff)
+![Django](https://img.shields.io/badge/Django-092E20?logo=django&logoColor=fff)
+![FastAPI](https://img.shields.io/badge/FastAPI-009485?logo=fastapi&logoColor=fff)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?logo=postgresql&logoColor=fff)
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff)
+![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?logo=github-actions&logoColor=fff)
+![AWS](https://img.shields.io/badge/AWS-FF9900?logo=amazonaws&logoColor=fff)
+![Linux](https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=000)
 
----
+### Current Work
 
-- [Paystack API Wrapper](https://github.com/theolujay/paystack-api-wrapper) - Modern, test-driven open source Python client for the Paystack API. Build to save developers time integrating into Python projects.
+**Backend Engineer & Tech Lead – Verboheit**  
+Leading backend development for a national math competition platform:  
+- Architecting APIs, database schemas, and scoring systems  
+- Dockerized deployments, Redis caching, and GitHub Actions CI/CD  
+- Managing AWS RDS & S3, building reusable modules, and improving release reliability  
 
-- [Grateful For API](https://github.com/theolujay/grateful_for) - Backend service for a journaling app with JWT & Google OAuth, personal analytics, and a randomized community feed.
+### Selected Projects
 
-- [Examination management API](https://github.com/theolujay/vmlc_api) - A RESTful API for a competition platform with multi-stage exams, automated scoring, and leaderboard management.
+- [**Paystack API Wrapper**](https://github.com/theolujay/paystack-api-wrapper)  
+  Test-driven Python client for Paystack with full API coverage and robust error handling.  
 
-### <center>GitHub Activity</center>
+- [**Grateful For API**](https://github.com/theolujay/grateful_for)  
+  OAuth-enabled journaling backend with analytics, randomized feed, and S3 storage.  
 
----
-
-![Joseph's GitHub Activity](https://github-readme-stats.vercel.app/api?username=theolujay&show_icons=true&theme=dark)
-
-![Joseph's GitHub Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=theolujay&langs_count=5&layout=compact&theme=dark)
-
-### <center>Reach Me</center>
-
----
-
-<sub>
-
- [![Gmail](https://img.shields.io/badge/Gmail-D14836?logo=gmail&logoColor=white)](theolujay@gmail.com) [![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?logo=whatsapp&logoColor=white)](https://wa.me/qr/O65P4ANF2TQ7E1) [![LinkedIn](https://custom-icon-badges.demolab.com/badge/LinkedIn-0A66C2?logo=linkedin-white&logoColor=fff)](https://www.linkedin.com/in/theolujay/) [![X](https://img.shields.io/badge/X-%23000000.svg?logo=X&logoColor=white)](https://x.com/theolujay) 
-[![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?&logo=discord&logoColor=white)](https://discord.com/users/931582976272236564)
-
-</sub>
-
-- Email - theolujay@gmail.com
-
-- WhatsApp - [+234 90 2139 0950](https://wa.me/qr/O65P4ANF2TQ7E1)
-
-- LinkedIn - [Joseph Ezekiel](https://www.linkedin.com/in/theolujay) 
-
-- X - [@theolujay](https://x.com/theolujay)
-
-- Discord - [@olujay](https://discord.com/users/931582976272236564)
-
-### <center>What I'm Up To<center>
-
----
-
-<sub>
-
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000)](#) [![React](https://img.shields.io/badge/React-%2320232a.svg?logo=react&logoColor=%2361DAFB)](#) [![GraphQL](https://img.shields.io/badge/GraphQL-E10098?logo=graphql&logoColor=fff)](#)
-
-</sub>
-
-### <center>**Origin Story**</center>
-
----
-
-Robots and autonomous systems... I love them! So I went to earn a *B.Eng* in **mechatronics engineering**, which set me up for life in electrical and electronics and <u>coding.</u>
+- [**VMLC API**](https://github.com/theolujay/vmlc_api)  
+  REST API for a competition platform with multi-stage exams, automated scoring, and leaderboards.  
 
 
-#### <center>Tools</center>
+### GitHub Stats
 
----
+![Activity](https://github-readme-stats.vercel.app/api?username=theolujay&show_icons=true&theme=dark)  
+![Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=theolujay&layout=compact&theme=dark)
 
-<br>
+### Connect
 
-<sub>
-
-**Code:**
-
-[![Visual Studio Code](https://custom-icon-badges.demolab.com/badge/Visual%20Studio%20Code-0078d7.svg?logo=vsc&logoColor=white)](#) [![Obsidian](https://img.shields.io/badge/Obsidian-%23483699.svg?&logo=obsidian&logoColor=white)](#) [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](#)
-
-
-**AI:**
-
-[![ChatGPT](https://img.shields.io/badge/ChatGPT-74aa9c?logo=openai&logoColor=white)](#) [![Claude](https://img.shields.io/badge/Claude-D97757?logo=claude&logoColor=fff)](#) [![Deepseek](https://custom-icon-badges.demolab.com/badge/Deepseek-4D6BFF?logo=deepseek&logoColor=fff)](#) [![Google Gemini](https://img.shields.io/badge/Google%20Gemini-886FBF?logo=googlegemini&logoColor=fff)](#)
-
-**Docs & Notes:**
-
-[![Notion](https://img.shields.io/badge/Notion-fff?logo=notion&logoColor=000)](#) [![Read the Docs](https://img.shields.io/badge/Readthedocs-%23000000.svg?logo=readthedocs&logoColor=fff)](#) [![Sphinx](https://img.shields.io/badge/Sphinx-3C3B39?logo=sphinx&logoColor=fff)](#)
-
-**OS:**
-
-[![Windows](https://custom-icon-badges.demolab.com/badge/Windows-0078D6?logo=windows11&logoColor=white)](#) [![Android](https://img.shields.io/badge/Android-3DDC84?logo=android&logoColor=white)](#) [![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?logo=ubuntu&logoColor=white)](#)
-
-**Browser:**
-
-[![Arc](https://img.shields.io/badge/Arc-092230?logo=arc&logoColor=fff)](#) [![Google Chrome](https://img.shields.io/badge/Google%20Chrome-4285F4?logo=GoogleChrome&logoColor=white)](#)
+[![Gmail](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=fff)](mailto:theolujay@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=fff)](https://www.linkedin.com/in/theolujay)
+[![X](https://img.shields.io/badge/X-000?logo=x&logoColor=fff)](https://x.com/theolujay)
+[![Discord](https://img.shields.io/badge/Discord-5865F2?logo=discord&logoColor=fff)](https://discord.com/users/931582976272236564)
 
 
-**Edu:**
+### Origin Story
 
-[![Datacamp](https://img.shields.io/badge/Datacamp-05192D?&logo=datacamp&logoColor=03E860)](#) [![Coursera](https://img.shields.io/badge/Coursera-0056D2?logo=coursera&logoColor=fff)](#) [![freeCodeCamp](https://img.shields.io/badge/freeCodeCamp-0A0A23?logo=freecodecamp&logoColor=fff)](#) [![Pluralsight](https://img.shields.io/badge/Pluralsight-F15B2A?logo=pluralsight&logoColor=fff)](#)
-
-</sub>
-
-> 💡Fun bit: I sometimes code with [Martin Miller's songs](https://www.youtube.com/watch?v=4LHCDU4NFr0&si=t_hvw-DTVyZiRU-J) playing in the background. 
+B.Eng. in **Mechatronics Engineering**. Final year project: PLC-based automated car wash system.  
+That mix of hardware and software curiosity led to backend engineering: APIs, automation, and systems that scale.  
