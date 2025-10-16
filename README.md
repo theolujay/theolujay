@@ -1,5 +1,4 @@
-Backend engineer who cares about **reducing manual pain**, shipping APIs that scale, and surfacing insight so systems don’t surprise you.  
-I work with Python, containers, observability, and infrastructure — all to make backend engineering less fragile.
+Backend engineer who cares about **reducing manual pain**, shipping APIs that scale, and surfacing insight so systems don’t surprise you. I work with Python, containers, observability, and infrastructure... all to make backend systems solid.
 
 ---
 
@@ -18,14 +17,14 @@ I work with Python, containers, observability, and infrastructure — all to mak
 
 ### Current Work
 
-**Backend Engineer & Tech Lead – Verboheit**  
+**Backend Engineer – Verboheit Consulting**  
 - Automated exam workflows and results publication to remove hands-on dependencies on Excel, Docs, and Forms.  
 - Deployed services with Docker, routing via Traefik for load balancing, DNS, and API gateway duties.  
 - Set up observability stack (Loki, Grafana, Tempo, Prometheus) instrumented with OpenTelemetry; use logs and traces to begin spotting performance issues.
 
 ---
 
-### Highlighted Projects
+### Selected Projects
 
 - **[Paystack API Wrapper](https://github.com/theolujay/paystack-api-wrapper)**  
   Modern Python SDK covering the full Paystack API. Built with tests (~99% coverage), maintained to avoid pitfalls in older libraries.
@@ -54,4 +53,4 @@ I work with Python, containers, observability, and infrastructure — all to mak
 
 ---
 
-> _“Systems demand care. Granularity does the job"_  
+> _“Systems demand care. Granular desgin and development ensure that."_  
