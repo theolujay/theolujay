@@ -6,4 +6,4 @@ Catch me...
 
 ---
 
-> _“Brick by brick. That's how systems are built."_  
+> _“Sometimes you break stuff to make stuff..."_  
