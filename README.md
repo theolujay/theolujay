@@ -6,4 +6,4 @@ Catch me...
 
 ---
 
-> _“Sometimes you break stuff to make stuff..."_  
+> _“Simplicity is the best architecture."_  
