@@ -1,13 +1,21 @@
 Infrastructure-minded backend engineer with experience across edu-tech, fintech, and SaaS platforms, specializing in Python, Node.js/​TypeScript, and Go. Proven track record designing resilient APIs, integrating payment systems, and building high-availability infrastructure with Docker, CI/​CD pipelines, and a full observability stack.
 
-### Technical Skills
-*Languages**: Python, Node.js/TypeScript, Go
+## Skills
+
+**Languages**: Python, Node.js/TypeScript, Go
+
 **Frameworks & APIs**: Django REST Framework, FastAPI, Django Ninja, Express.js, RESTful APIs, microservices, OpenAPI/Swagger, JWT OAuth2
+
 **Databases**: PostgreSQL, Redis, MongoDB, Prisma ORM, MySQL
+
 **DevOps & Infrastructure**: Docker Swarm, GitHub Actions, Nginx, Traefik, Bash, Linux/VPS
+
 **Observability**: Prometheus (metrics), Grafana (dashboards & alertings), Loki (log aggregation), Tempo (distributed tracing), Grafana Alloy (OpenTelemetry collector)
+
 **Payments**: Paystack, Google & Apple In-App payments
+
 **Tools**: Git, GitHub, AI agents
+
 
 Catch me...
 
