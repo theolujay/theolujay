@@ -1,50 +1,16 @@
-Backend engineer with infrastructure expertise across fintech, edutech, and SaaS platforms. Specialized in building scalable systems with Go, Python, and TypeScript. Proven track record designing resilient APIs, microservices architectures, and deployment platforms.
+# Hey, it's Joseph
 
-## Featured Projects
+How things work and what's to be done for more efficieny and productivity are pursuits I'm keen on. Infrastructure, payment services, edutech platforms, and automation are what you'll find me building, writing about, and collaborating on with people.
 
-**Core Systems & Infrastructure**
-- [appa](https://github.com/theolujay/appa) - Minimal deployment platform with zero-config orchestration and routing (Go)
-- [btree-db](https://github.com/theolujay/btree-db) - B+Tree database implementation from scratch (Go)
-- [payd](https://github.com/theolujay/payd) - Payment processing system with multi-environment support (Python/Go)
+Go, Python, and TypeScript are the ecosystems you'll find at. The following are a few things I've built:
 
-**Verboheit - Educational Technology**
-- [VMLC Backend](https://github.com/theolujay/vmlc-backend) - Verboheit Mathematics League Competition API with event management and user registration (Django)
-- [VMLC Frontend](https://github.com/theolujay/vmlc-frontend) - Competition registration and information portal (React/TypeScript)
-- [VMLC Landing](https://github.com/theolujay/vmlc-landing) - Public-facing marketing site for the competition (Vite/React)
-- [Grateful For API](https://github.com/theolujay/grateful_for) - Backend API with comprehensive documentation and admin interfaces (Django REST)
+- [paystack-api-wrapper](https://github.com/theolujay/paystack-api-wrapper) - Intuitive, type-safe Python client for Paystack API services. (99% coverage)
+- [appa](https://github.com/theolujay/appa) - Minimal deployment platform with zero-config orchestration. (Go)
+- [btree-db](https://github.com/theolujay/btree-db) - B+Tree database implementation from scratch. (Go)
 
-## Skills
+- [VMLC Stack](https://github.com/theolujay/vmlc-backend) - Competition management system for Verboheit Mathematics League. (Django/React/Next.js)
+- [Grateful For](https://github.com/theolujay/grateful_for) - Journaling API with analytics and community feeds. (Django)
 
-**Languages**: Go (primary), Python, TypeScript/JavaScript
+Find me on [X](https://x.com/theolujay), [LinkedIn](https://linkedin.com/in/theolujay), or [send me a mail](mailto:theolujay@gmail.com).
 
-**Frameworks & APIs**: FastAPI, Django REST Framework, Django, Express.js, RESTful APIs, microservices, OpenAPI/Swagger, JWT/OAuth2
-
-**Databases**: PostgreSQL, Redis, MongoDB, Prisma ORM, MySQL
-
-**DevOps & Infrastructure**: Docker Swarm, GitHub Actions, Nginx, Traefik, Bash, Linux/VPS, environment-specific configurations
-
-**Observability**: Prometheus (metrics), Grafana (dashboards & alerting), Loki (log aggregation), Tempo (distributed tracing), Grafana Alloy (OpenTelemetry)
-
-**Payments**: Paystack, Google & Apple In-App payments
-
-**Tools**: Git, GitHub, AI agents
-
-## Key Expertise
-
-Systems Design - Architecting fault-tolerant microservices, API design patterns, and distributed system principles
-
-Infrastructure & Deployment - Infrastructure as code, multi-environment deployments, containerization, and automated CI/CD pipelines
-
-Educational Technology - Building registration systems, event management platforms, and student competition platforms at scale
-
-Database Design - Database optimization, transaction handling, and data integrity across distributed systems
-
----
-
-Connect with me:
-
-[![Gmail](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=fff)](mailto:theolujay@gmail.com) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=fff)](https://linkedin.com/in/theolujay)
-
----
-
-> "Simplicity is the best architecture."
+> <sub>"Excellence is a virtue, and virtue is its own reward."</sub>
