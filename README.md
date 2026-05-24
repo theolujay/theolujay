@@ -11,6 +11,7 @@ Go, Python, and TypeScript are the ecosystems you'll find at. The following are 
 - [VMLC Stack](https://github.com/theolujay/vmlc-backend) - Competition management system for Verboheit Mathematics League. (Django/React/Next.js)
 - [Grateful For](https://github.com/theolujay/grateful_for) - Journaling API with analytics and community feeds. (Django)
 
+Explore my professional experience in [my resume](https://resume.theolujay.dev).
 Find me on [X](https://x.com/theolujay), [LinkedIn](https://linkedin.com/in/theolujay), or [send me a mail](mailto:theolujay@gmail.com).
 
 > <sub>"Virtue is its own reward."</sub>
