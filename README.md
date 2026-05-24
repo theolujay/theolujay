@@ -13,4 +13,4 @@ Go, Python, and TypeScript are the ecosystems you'll find at. The following are 
 
 Find me on [X](https://x.com/theolujay), [LinkedIn](https://linkedin.com/in/theolujay), or [send me a mail](mailto:theolujay@gmail.com).
 
-> <sub>"Excellence is a virtue, and virtue is its own reward."</sub>
+> <sub>"Virtue is its own reward."</sub>
