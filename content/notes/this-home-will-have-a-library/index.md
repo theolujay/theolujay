@@ -1,12 +1,24 @@
 ---
-title: This home will have a library
+title: Genesis
 date: 2026-09-03
-summary: A small place for notes, posts, articles, and whatever else becomes worth keeping.
+summary: Slice of the internet. Fragments of me.
 tags:
   - meta
 draft: false
 ---
 
-Notes are for fragments, things learned, and thoughts that do not need to become essays before they are worth keeping.
+If you're seeing thing, well, thanks.
 
-Posts can take their time. Articles can go deep. This little shelf is for everything in between.
+Why? You may wonder.
+
+What you're witnessing is the beginning of something that may only make more sense years down the line.
+
+You're either here because you're early or you wanted to know where it all began.
+
+Either way, you cared. So... thanks.
+
+Anyway. Nothing much to say here. Not yet.
+
+I've only recently put up my own shelf -- a slice of the internet for me.
+
+See you around.
