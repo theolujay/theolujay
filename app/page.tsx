@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { SiteShell } from '@/components/site-shell';
 import { formatContentDate, getAllContent } from '@/lib/content';
 
@@ -170,7 +169,7 @@ export default function Home() {
             <ul className="note-list">
               {recentContent.map((item) => (
                 <li key={`${item.kind}-${item.slug}`}>
-                  <Link href={item.url}>{item.title}</Link>
+                  <a href={item.url}>{item.title}</a>
                   <time dateTime={item.date}>
                     {formatContentDate(item.date)}
                   </time>

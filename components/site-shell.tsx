@@ -1,4 +1,4 @@
-import Link from 'next/link';
+/* oxlint-disable next/no-html-link-for-pages -- Vinext's Link shim currently swallows internal navigation. */
 import type { ReactNode } from 'react';
 
 const navigation = [
@@ -21,15 +21,15 @@ export function SiteShell({ children }: { children: ReactNode }) {
         <header className="site-header">
           <div>
             <h1>
-              <Link href="/">Joseph &quot;Olujay&quot; Ezekiel</Link>
+              <a href="/">Joseph &quot;Olujay&quot; Ezekiel</a>
               <span className="cursor" aria-hidden="true" />
             </h1>
 
             <nav aria-label="Primary navigation">
               {navigation.map((link) => (
-                <Link key={link.label} href={link.href}>
+                <a key={link.label} href={link.href}>
                   {link.label}
-                </Link>
+                </a>
               ))}
             </nav>
           </div>

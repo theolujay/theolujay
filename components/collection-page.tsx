@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import {
   formatContentDate,
   getContentByKind,
@@ -48,7 +47,7 @@ export function CollectionPage({ kind }: { kind: ContentKind }) {
               <li key={item.slug}>
                 <time dateTime={item.date}>{formatContentDate(item.date)}</time>
                 <div>
-                  <Link href={item.url}>{item.title}</Link>
+                  <a href={item.url}>{item.title}</a>
                   <p>{item.summary}</p>
                 </div>
               </li>
