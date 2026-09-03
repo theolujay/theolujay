@@ -23,5 +23,5 @@ I've only recently put up my own shelf -- a slice of the internet for me.
 
 See you around.
 
-![Resolute Racoon by Ubuntu](image_01.jpg)
+![Resolute Racoon by Ubuntu](./image_01.jpg)
 <p style="text-align: right; font-size: 8px;">Resolute Racoon wallpaper from Ubuntu 26.04</p>
