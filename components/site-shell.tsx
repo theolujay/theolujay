@@ -1,4 +1,4 @@
-/* oxlint-disable next/no-html-link-for-pages -- Vinext's Link shim currently swallows internal navigation. */
+/* oxlint-disable next/no-html-link-for-pages -- Use ordinary anchors so tracked redirects are never prefetched. */
 import type { ReactNode } from 'react';
 import { TrackedLink } from './tracked-link';
 

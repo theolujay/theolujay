@@ -1,4 +1,4 @@
-import { getRequestExecutionContext } from 'vinext/shims/request-context';
+import { after } from 'next/server';
 
 export const socialDestinations = {
   email: 'mailto:theolujay@gmail.com',
@@ -69,13 +69,8 @@ async function captureRedirect(
 
 export function createSocialRedirect(destination: SocialDestination) {
   return function GET(request: Request) {
-    const capture = captureRedirect(request, destination).catch(
-      () => undefined,
-    );
-    const executionContext = getRequestExecutionContext();
-
-    if (executionContext) {
-      executionContext.waitUntil(capture);
+    if (request.method === 'GET') {
+      after(() => captureRedirect(request, destination).catch(() => undefined));
     }
 
     return new Response(null, {

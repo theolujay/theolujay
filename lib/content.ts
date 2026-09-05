@@ -1,3 +1,5 @@
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeSlug from 'rehype-slug';
 import rehypeStringify from 'rehype-stringify';
@@ -24,23 +26,39 @@ export type ContentItem = {
   url: string;
 };
 
-const markdownFiles = import.meta.glob(
-  '/content/{notes,posts,articles}/**/index.md',
-  {
-    eager: true,
-    query: '?raw',
-    import: 'default',
-  },
-) as Record<string, string>;
+const markdownFiles: Record<string, string> = {};
+const assetFiles: Record<string, string> = {};
+const contentRoot = join(process.cwd(), 'content');
 
-const assetFiles = import.meta.glob(
-  '/content/{notes,posts,articles}/**/*.{avif,gif,jpeg,jpg,png,svg,webp}',
-  {
-    eager: true,
-    query: '?url',
-    import: 'default',
-  },
-) as Record<string, string>;
+function scanContent(relative: string) {
+  if (!existsSync(join(contentRoot, relative))) return;
+  for (const entry of readdirSync(join(contentRoot, relative), {
+    withFileTypes: true,
+  })) {
+    const path = `${relative}/${entry.name}`;
+    if (entry.isDirectory()) scanContent(path);
+    else if (entry.isFile() && entry.name === 'index.md') {
+      markdownFiles[`/content/${path}`] = readFileSync(
+        join(contentRoot, path),
+        'utf8',
+      );
+    } else if (
+      entry.isFile() &&
+      /\.(avif|gif|jpe?g|png|svg|webp)$/i.test(entry.name)
+    ) {
+      assetFiles[`/content/${path}`] =
+        `/content-assets/${path.split('/').map(encodeURIComponent).join('/')}`;
+    }
+  }
+}
+
+for (const kind of contentKinds) scanContent(kind);
+
+export function getContentAsset(segments: string[]) {
+  const path = segments.join('/');
+  if (!assetFiles[`/content/${path}`]) return undefined;
+  return readFileSync(join(contentRoot, path));
+}
 
 const markdownProcessor = unified()
   .use(remarkParse)
@@ -237,7 +255,7 @@ if (duplicate) {
 }
 
 const visibleItems = parsedItems
-  .filter((item) => import.meta.env.DEV || !item.draft)
+  .filter((item) => process.env.NODE_ENV !== 'production' || !item.draft)
   .sort((a, b) => b.date.localeCompare(a.date));
 
 export function getAllContent() {
