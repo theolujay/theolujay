@@ -1,4 +1,5 @@
 import { SiteShell } from '@/components/site-shell';
+import { TrackedLink } from '@/components/tracked-link';
 import { formatContentDate, getAllContent } from '@/lib/content';
 
 const personSchema = {
@@ -62,7 +63,13 @@ export default function Home() {
             <li>
               <span className="entry-key">building →</span>
               <div>
-                <a href="https://retreev.app">retreev.app</a>
+                <TrackedLink
+                  href="/retreev?from=homepage"
+                  event="outbound_link_clicked"
+                  properties={{ destination: 'retreev', placement: 'home_now' }}
+                >
+                  retreev.app
+                </TrackedLink>
                 <p>
                   Google Drive in. Memorable galleries out. Find yourself with a
                   selfie.
@@ -169,7 +176,17 @@ export default function Home() {
             <ul className="note-list">
               {recentContent.map((item) => (
                 <li key={`${item.kind}-${item.slug}`}>
-                  <a href={item.url}>{item.title}</a>
+                  <TrackedLink
+                    href={item.url}
+                    event="content_selected"
+                    properties={{
+                      content_kind: item.kind,
+                      content_slug: item.slug,
+                      source: 'home_recent_content',
+                    }}
+                  >
+                    {item.title}
+                  </TrackedLink>
                   <time dateTime={item.date}>
                     {formatContentDate(item.date)}
                   </time>

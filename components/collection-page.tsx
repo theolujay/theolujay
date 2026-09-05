@@ -4,6 +4,7 @@ import {
   type ContentKind,
 } from '@/lib/content';
 import { SiteShell } from './site-shell';
+import { TrackedLink } from './tracked-link';
 
 const collectionCopy: Record<
   ContentKind,
@@ -47,7 +48,17 @@ export function CollectionPage({ kind }: { kind: ContentKind }) {
               <li key={item.slug}>
                 <time dateTime={item.date}>{formatContentDate(item.date)}</time>
                 <div>
-                  <a href={item.url}>{item.title}</a>
+                  <TrackedLink
+                    href={item.url}
+                    event="content_selected"
+                    properties={{
+                      content_kind: item.kind,
+                      content_slug: item.slug,
+                      source: 'collection_list',
+                    }}
+                  >
+                    {item.title}
+                  </TrackedLink>
                   <p>{item.summary}</p>
                 </div>
               </li>

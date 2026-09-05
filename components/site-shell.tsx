@@ -1,13 +1,14 @@
 /* oxlint-disable next/no-html-link-for-pages -- Vinext's Link shim currently swallows internal navigation. */
 import type { ReactNode } from 'react';
+import { TrackedLink } from './tracked-link';
 
 const navigation = [
   { label: 'notes', href: '/notes' },
   { label: 'posts', href: '/posts' },
   { label: 'articles', href: '/articles' },
-  { label: 'github', href: 'https://github.com/theolujay' },
-  { label: 'linkedin', href: 'https://www.linkedin.com/in/theolujay' },
-  { label: 'twitter', href: 'https://x.com/theolujay' },
+  { label: 'github', href: '/github?from=site-nav', outbound: true },
+  { label: 'linkedin', href: '/linkedin?from=site-nav', outbound: true },
+  { label: 'twitter', href: '/x?from=site-nav', outbound: true },
 ];
 
 export function SiteShell({ children }: { children: ReactNode }) {
@@ -27,9 +28,25 @@ export function SiteShell({ children }: { children: ReactNode }) {
 
             <nav aria-label="Primary navigation">
               {navigation.map((link) => (
-                <a key={link.label} href={link.href}>
+                <TrackedLink
+                  key={link.label}
+                  href={link.href}
+                  event={
+                    link.outbound
+                      ? 'outbound_link_clicked'
+                      : 'navigation_clicked'
+                  }
+                  properties={
+                    link.outbound
+                      ? {
+                          destination: link.label,
+                          placement: 'primary_navigation',
+                        }
+                      : { destination: link.label }
+                  }
+                >
                   {link.label}
-                </a>
+                </TrackedLink>
               ))}
             </nav>
           </div>
@@ -42,9 +59,13 @@ export function SiteShell({ children }: { children: ReactNode }) {
 
         <footer>
           <span>© 2026 Joseph Ezekiel</span>
-          <a href="https://x.com/i/chat/906146874-2070815243052146688">
+          <TrackedLink
+            href="/hello?from=site-footer"
+            event="outbound_link_clicked"
+            properties={{ destination: 'contact', placement: 'footer' }}
+          >
             say hello →
-          </a>
+          </TrackedLink>
         </footer>
       </div>
     </>
