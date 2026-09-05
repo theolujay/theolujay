@@ -26,7 +26,7 @@ export function TrackedLink({
 
         if (
           !clickEvent.defaultPrevented &&
-          process.env.NEXT_PUBLIC_POSTHOG_KEY &&
+          process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN &&
           process.env.NEXT_PUBLIC_POSTHOG_HOST
         ) {
           posthog.capture(event, properties);

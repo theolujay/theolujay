@@ -39,7 +39,7 @@ async function captureRedirect(
   request: Request,
   destination: SocialDestination,
 ) {
-  const apiKey = process.env.NEXT_PUBLIC_POSTHOG_KEY;
+  const apiKey = process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN;
   const host = process.env.NEXT_PUBLIC_POSTHOG_HOST;
 
   if (!apiKey || !host) return;
