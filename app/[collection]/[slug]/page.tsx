@@ -66,7 +66,7 @@ export default async function ContentPage({ params }: PageProps) {
   const item = getContentItem(collection, slug);
   if (!item) notFound();
 
-  const html = await renderContent(item);
+  const content = await renderContent(item);
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': item.kind === 'articles' ? 'TechArticle' : 'BlogPosting',
@@ -110,7 +110,7 @@ export default async function ContentPage({ params }: PageProps) {
             />
           ) : null}
 
-          <div className="prose" dangerouslySetInnerHTML={{ __html: html }} />
+          <div className="prose">{content}</div>
 
           <a className="back-link" href={`/${item.kind}`}>
             ← all {item.kind}

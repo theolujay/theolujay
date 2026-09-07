@@ -1,13 +1,11 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { compileMDX } from 'next-mdx-remote/rsc';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeSlug from 'rehype-slug';
-import rehypeStringify from 'rehype-stringify';
 import remarkGfm from 'remark-gfm';
-import remarkParse from 'remark-parse';
-import remarkRehype from 'remark-rehype';
-import { unified } from 'unified';
 import { parse as parseYaml } from 'yaml';
+import { ResumableUploadMentalModel } from '@/components/resumable-upload-mental-model';
 
 export const contentKinds = ['notes', 'posts', 'articles'] as const;
 export type ContentKind = (typeof contentKinds)[number];
@@ -37,7 +35,7 @@ function scanContent(relative: string) {
   })) {
     const path = `${relative}/${entry.name}`;
     if (entry.isDirectory()) scanContent(path);
-    else if (entry.isFile() && entry.name === 'index.md') {
+    else if (entry.isFile() && /^index\.mdx?$/.test(entry.name)) {
       markdownFiles[`/content/${path}`] = readFileSync(
         join(contentRoot, path),
         'utf8',
@@ -60,13 +58,6 @@ export function getContentAsset(segments: string[]) {
   return readFileSync(join(contentRoot, path));
 }
 
-const markdownProcessor = unified()
-  .use(remarkParse)
-  .use(remarkGfm)
-  .use(remarkRehype)
-  .use(rehypeSlug)
-  .use(rehypeHighlight, { detect: false })
-  .use(rehypeStringify);
 
 function fail(sourcePath: string, message: string): never {
   throw new Error(`Invalid content at ${sourcePath}: ${message}`);
@@ -185,10 +176,10 @@ function parseDate(value: unknown, sourcePath: string) {
 
 function parseItem(sourcePath: string, source: string): ContentItem {
   const pathMatch = sourcePath.match(
-    /^\/content\/(notes|posts|articles)\/([^/]+)\/index\.md$/,
+    /^\/content\/(notes|posts|articles)\/([^/]+)\/index\.mdx?$/,
   );
 
-  if (!pathMatch) fail(sourcePath, 'expected content/<kind>/<slug>/index.md');
+  if (!pathMatch) fail(sourcePath, 'expected content/<kind>/<slug>/index.md or index.mdx');
 
   const [, kind, slug] = pathMatch as [string, ContentKind, string];
   const { data, body } = parseFrontmatter(source, sourcePath);
@@ -273,9 +264,19 @@ export function getContentItem(kind: string, slug: string) {
 }
 
 export async function renderContent(item: ContentItem) {
-  const markdown = validateAndResolveImages(item.body, item.sourcePath);
-  const rendered = await markdownProcessor.process(markdown);
-  return String(rendered);
+  const source = validateAndResolveImages(item.body, item.sourcePath);
+  const { content } = await compileMDX({
+    source,
+    components: { ResumableUploadMentalModel },
+    options: {
+      mdxOptions: {
+        remarkPlugins: [remarkGfm],
+        rehypePlugins: [rehypeSlug, [rehypeHighlight, { detect: false }]],
+      },
+    },
+  });
+
+  return content;
 }
 
 export function formatContentDate(date: string) {
