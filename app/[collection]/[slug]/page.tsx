@@ -9,7 +9,7 @@ import {
   getContentItem,
   renderContent,
 } from '@/lib/content';
-import { AUTHOR_NAME, SITE_URL } from '@/lib/site';
+import { AUTHOR_NAME, SITE_NAME, SITE_URL } from '@/lib/site';
 
 type PageProps = {
   params: Promise<{ collection: string; slug: string }>;
@@ -31,11 +31,19 @@ export async function generateMetadata({
   if (!item) return {};
 
   const image = item.cover
-    ? new URL(item.cover, SITE_URL).toString()
-    : undefined;
+    ? { url: new URL(item.cover, SITE_URL).toString(), alt: item.title }
+    : {
+        url: new URL(
+          `/social-image/${encodeURIComponent(collection)}/${encodeURIComponent(slug)}`,
+          SITE_URL,
+        ).toString(),
+        width: 1200,
+        height: 630,
+        alt: item.title,
+      };
 
   return {
-    title: `${item.title} — Olujay`,
+    title: `${item.title} • Olujay`,
     description: item.summary,
     alternates: { canonical: item.url },
     openGraph: {
@@ -43,15 +51,19 @@ export async function generateMetadata({
       description: item.summary,
       type: 'article',
       url: item.url,
+      siteName: SITE_NAME,
+      locale: 'en_NG',
       publishedTime: `${item.date}T00:00:00Z`,
       authors: [AUTHOR_NAME],
-      images: image ? [{ url: image, alt: item.title }] : [],
+      tags: item.tags,
+      images: [image],
     },
     twitter: {
-      card: image ? 'summary_large_image' : 'summary',
+      card: 'summary_large_image',
       title: item.title,
       description: item.summary,
-      images: image ? [image] : [],
+      creator: '@theolujay',
+      images: [image],
     },
   };
 }

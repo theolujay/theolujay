@@ -1,6 +1,11 @@
 import type { Metadata } from 'next';
 import { Geist_Mono } from 'next/font/google';
-import { SITE_DESCRIPTION, SITE_URL } from '@/lib/site';
+import {
+  AUTHOR_NAME,
+  DEFAULT_SOCIAL_IMAGE,
+  SITE_DESCRIPTION,
+  SITE_URL,
+} from '@/lib/site';
 import './globals.css';
 
 const geistMono = Geist_Mono({
@@ -15,6 +20,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: TITLE,
   description: DESCRIPTION,
+  authors: [{ name: AUTHOR_NAME, url: SITE_URL }],
+  creator: AUTHOR_NAME,
   alternates: {
     canonical: '/',
     types: {
@@ -31,20 +38,14 @@ export const metadata: Metadata = {
     siteName: 'Olujay',
     locale: 'en_NG',
     type: 'website',
-    images: [
-      {
-        url: '/og.png',
-        width: 1200,
-        height: 630,
-        alt: TITLE,
-      },
-    ],
+    images: [DEFAULT_SOCIAL_IMAGE],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Olujay — Joseph Ezekiel',
+    title: TITLE,
     description: DESCRIPTION,
-    images: ['/og.png'],
+    creator: '@theolujay',
+    images: [DEFAULT_SOCIAL_IMAGE],
   },
 };
 
