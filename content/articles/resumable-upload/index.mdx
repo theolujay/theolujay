@@ -1,0 +1,199 @@
+---
+title: Building a resumable upload server in Go
+date: 2026-09-07
+summary: How curiosity about Google Drive led me to build a Go resumable upload server and learn what makes an upload offset trustworthy.
+tags: []
+draft: false
+---
+
+## Why I built it
+
+Google Drive just works. I could upload 5 GB+ of files without worrying much about my unstable connection. But a new feature at [Retreev](https://retreev.app) needs direct uploads, and I now have a reason to wonder, "How does it really work?"
+
+Starting an upload all over when the network fails can be frustrating. I wanted to understand how to resume it from where it left off.
+
+Researching Google Drive and Cloudflare R2 led me to [tus](https://tus.io), a protocol for resumable uploads over HTTP. Then I wrote a minimal Go server to understand the mechanics before applying them at a larger scale.
+
+For simplicity, I'll call this implementation *Moove* throughout this article.
+
+## Understanding tus
+
+The [tus protocol](https://tus.io/protocols/resumable-upload) defines a specification I built a mental model around:
+
+- **create an upload**,
+- **ask where it stands**,
+- **then send bytes from that position**.
+
+The server first gives the client a URL for the upload. The client sends the file to that URL. If the connection drops, it asks the server how much was saved and continues from there.
+
+*Moove* handles this through three types of request:
+
+1. **Create (`POST`):** The client tells the server how large the file is. The server gives it an upload URL, ready to receive the file.
+2. **Check progress (`HEAD`):** The client asks how many bytes the server has saved. That number tells it where to resume.
+3. **Send data (`PATCH`):** The client sends the next part of the file and says where it starts. The server saves it and replies with the updated number of bytes saved.
+
+`POST` comes from tus's Creation extension. The core protocol assumes an upload URL already exists; `HEAD` and `PATCH` handle checking and continuing that upload.
+
+A new upload can start sending data immediately after creation. Checking progress is useful after an interruption, when the client is unsure how much arrived. Once the server has saved the full file, the upload is complete.
+
+<ResumableUploadMentalModel />
+
+Clients can also discover the server's capabilities with `OPTIONS`. Here are the relevant headers from *Moove*:
+
+```http
+OPTIONS /uploads HTTP/1.1
+Host: localhost:4000
+
+HTTP/1.1 200 OK
+Tus-Resumable: 1.0.0
+Tus-Version: 1.0.0
+Tus-Extension: creation,creation-defer-length,checksum,checksum-trailer,termination
+Tus-Checksum-Algorithm: sha1,sha256
+Tus-Max-Size: 10485760
+```
+
+The last header limits each complete upload to 10 MiB. If the client does not know the file size yet, it can create the upload with `Upload-Defer-Length: 1` and supply `Upload-Length` in a later `PATCH`. Once set, that length cannot change.
+
+## Getting stuck on PATCH
+
+`PATCH` is where the work gets more interesting. Receiving bytes is straightforward. Deciding when those bytes count as saved progress takes more care.
+
+A minimal starting point looks like this. This is a simplified sketch of the write operation, not the entire handler. Let's assume the file is open and the offset has been validated:
+
+```go
+// File is open and offset validated at this point.
+// Seek to the offset and write the body.
+if _, err := file.Seek(offset, io.SeekStart); err != nil {
+    return err
+}
+// Copy the bytes from the request body to the file on disk
+written, err := io.Copy(file, r.Body)
+if err != nil {
+    return err
+}
+// Update the upload's offset to reflect the number of bytes written.
+upload.Offset = offset + written
+return db.UpdateUpload(upload)
+```
+
+On a successful request, this writes the body and records the new position. But `io.Copy` can write some bytes before returning an error. The file then contains data that the saved offset does not account for. Saving the metadata can also fail after the bytes have been written.
+
+This is where the problem becomes more than the resumable HTTP exchange I started out trying to understand. The server has two records of progress -- the bytes in the file and the offset in the database -- and they can disagree.
+
+The question becomes: **what can the client safely trust when it asks for the offset?**
+
+## Making resuming reliable
+
+To resume an upload, *Moove* needs to keep both the file data and a record of its progress. I used a local JSON file, `db.json`, as a simple database. *Moove* creates it when the first upload is registered and records each upload's ID, total size, and number of bytes saved. The uploaded bytes are stored separately in `uploads/<id>` on disk.
+
+That saved byte count is the offset: the position the client can safely resume from. The following excerpts show how *Moove* keeps it accurate.
+
+First, the client's offset must match the saved position:
+
+```go
+// Verify the client's offset matches the saved position.
+// If not, return an error.
+if upload.Offset != params.Offset {
+    return params, errUploadOffsetMismatch
+}
+```
+
+The handler turns this into `409 Conflict` and includes the expected `Upload-Offset`. If the server saves a chunk but its response never reaches the client, a retry at the old offset cannot append those bytes again. The client can use `HEAD` to discover the committed position.
+
+```http
+HEAD /uploads/<upload-id> HTTP/1.1
+Host: localhost:4000
+Tus-Resumable: 1.0.0
+
+HTTP/1.1 200 OK
+Tus-Resumable: 1.0.0
+Upload-Offset: 1048576
+Upload-Length: 2097152
+Cache-Control: no-store
+```
+
+Here, 1 MiB of a 2 MiB file has been saved. The client resumes with a `PATCH` request starting at `Upload-Offset: 1048576`. Only the relevant response headers are shown.
+
+```http
+PATCH /uploads/<upload-id> HTTP/1.1
+Host: localhost:4000
+Tus-Resumable: 1.0.0
+Upload-Offset: 1048576
+Content-Type: application/offset+octet-stream
+Content-Length: 1048576
+
+[the remaining 1 MiB of binary file data]
+
+HTTP/1.1 204 No Content
+Tus-Resumable: 1.0.0
+Upload-Offset: 2097152
+```
+
+The request's offset is where the body starts; the response's offset is the new committed position. In this example, it now equals the file's length, so the upload is complete.
+
+Next, the handler stages the request body in a temporary file:
+
+```go
+// Limit the body to the remaining upload size.
+body := http.MaxBytesReader(w, r.Body, params.Remaining)
+chunk, err := a.stageUploadBody(id, body)
+if err != nil {
+    a.writeError(w, r, err)
+    return
+}
+```
+
+`params.Remaining` bounds the request by the remaining file length, or the remaining 10 MiB allowance if the length is unknown. If reading the body fails, the temporary file is discarded and previously committed bytes remain unchanged. Retrying means resending that chunk.
+
+Checksums are optional. When the client supplies `Upload-Checksum`, the server verifies the staged chunk using SHA-1 or SHA-256 before committing it. It also accepts a checksum in a declared request trailer, after the body arrives. A mismatch returns status `460` without advancing the offset.
+
+Once validation succeeds, the commit function copies the staged bytes into the upload file. It flushes them before updating the metadata:
+
+```go
+if err := file.Sync(); err != nil {
+    return 0, fmt.Errorf("%w: could not flush committed chunk: %w", errUploadCommitFailed, err)
+}
+
+u.Offset = offset + c.Size
+if err := db.UpdateUpload(u); err != nil {
+    return 0, fmt.Errorf("%w: could not update upload: %w", errUploadCommitFailed, err)
+}
+committed = true // will be read in a deferred function
+return u.Offset, nil
+```
+
+If copying, flushing, or saving metadata fails, deferred cleanup attempts to truncate the file back to its previous offset. Metadata saves write and sync a temporary JSON file, then rename it over `db.json`.
+
+A process can still stop between writing bytes and saving metadata. On the next commit, the server checks the file against the saved offset: extra bytes are truncated; a file shorter than the committed offset is rejected. These checks support recovery, but the file and JSON record are not a single transaction or a complete guarantee against power loss.
+
+Finally, two requests must not validate the same offset and write to it simultaneously. The handler holds a lock for that upload throughout validation, staging, and commit:
+
+```go
+mu := db.MutexForUpload(id)
+mu.Lock()
+defer mu.Unlock()
+```
+
+`HEAD` and `DELETE` use the same lock, so they wait for an active write. Different uploads can transfer concurrently, while a separate database mutex protects JSON reads and updates. Both locks live inside one process; running multiple servers against the same storage directory would need a different coordination mechanism.
+
+The API tests cover interrupted bodies, failed metadata saves, recovery from extra file bytes, and concurrent requests. Those are the failure cases that make the offset worth trusting.
+
+## What I'd do next
+
+The main lesson is that resumability depends on a position both sides can trust. Chunking makes retries smaller; staging, commit ordering, and locking keep that position consistent.
+
+For production uploads at Retreev, I'd need to address requirements beyond this learning project:
+
+- **Access and resource limits:** Add authentication, upload ownership, appropriate timeouts, and cleanup for abandoned uploads. *Moove* currently allows any browser origin and has no authentication.
+- **Storage and durability:** Replace the JSON database and process-local locks with storage and coordination suited to multiple server instances. Test failure recovery before increasing the 10 MiB limit.
+- **Protocol coverage:** Tighten metadata validation and run broader conformance checks. *Moove* does not implement concatenation, which combines separately uploaded parts into a final upload.
+
+For that work, I'd likely use [tusd](https://github.com/tus/tusd), the official Go server implementation, rather than turn *Moove* into a production service. Building my own was a way to understand the protocol and the failure cases I'd need to evaluate in any implementation, not a reason to maintain every part myself.
+
+The [repository](https://github.com/theolujay/resumable-upload) contains the server, tests, and setup instructions, including a small upload you can try with `curl`. To start the server locally, run this from the repository root:
+
+```sh
+go run ./cmd/cli -port 4000 -log-level debug
+```
+
+I started with “how do I avoid sending the whole file again?” The more useful question turned out to be “what has the server actually committed?” Once that answer is reliable, the client has somewhere safe to continue.
