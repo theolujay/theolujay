@@ -178,22 +178,20 @@ defer mu.Unlock()
 
 The API tests cover interrupted bodies, failed metadata saves, recovery from extra file bytes, and concurrent requests. Those are the failure cases that make the offset worth trusting.
 
-## What I'd do next
+## Where this leads to
 
-The main lesson is that resumability depends on a position both sides can trust. Chunking makes retries smaller; staging, commit ordering, and locking keep that position consistent.
+Building *Moove* helped me understand resumable uploads. Doesn't mean I need to run my own upload server.
 
-For production uploads at Retreev, I'd need to address requirements beyond this learning project:
+[Cloudflare R2 supports multipart uploads](https://developers.cloudflare.com/r2/objects/upload-objects/#multipart-upload). The client sends a file in parts and retries any that fail, rather than starting over. This uses R2's S3-compatible API, not tus. There are similarities with tus's [concatenation extension](https://tus.io/protocols/resumable-upload#concatenation), but I'll probably go into those in a future post.
 
-- **Access and resource limits:** Add authentication, upload ownership, appropriate timeouts, and cleanup for abandoned uploads. *Moove* currently allows any browser origin and has no authentication.
-- **Storage and durability:** Replace the JSON database and process-local locks with storage and coordination suited to multiple server instances. Test failure recovery before increasing the 10 MiB limit.
-- **Protocol coverage:** Tighten metadata validation and run broader conformance checks. *Moove* does not implement concatenation, which combines separately uploaded parts into a final upload.
+For any project, I'd likely use direct uploads to R2 with [Uppy's S3 plugin](https://uppy.io/docs/aws-s3/). I've already tried Uppy's Tus plugin with *Moove*; the frontend is in the repository's [`ui/` directory](https://github.com/theolujay/resumable-upload/tree/main/ui). To use R2, I'd switch plugins and add backend code to control who can upload and link each file to the right event.
 
-For that work, I'd likely use [tusd](https://github.com/tus/tusd), the official Go server implementation, rather than turn *Moove* into a production service. Building my own was a way to understand the protocol and the failure cases I'd need to evaluate in any implementation, not a reason to maintain every part myself.
+*Moove* is still a learning project, using local storage, a 10 MiB limit, and no authentication. This implementation was to learn more about what happens when an upload stops halfway through, and how it can continue without starting over.
 
-The [repository](https://github.com/theolujay/resumable-upload) contains the server, tests, and setup instructions, including a small upload you can try with `curl`. To start the server locally, run this from the repository root:
+## Further reading
 
-```sh
-go run ./cmd/cli -port 4000 -log-level debug
-```
-
-I started with “how do I avoid sending the whole file again?” The more useful question turned out to be “what has the server actually committed?” Once that answer is reliable, the client has somewhere safe to continue.
+- [The tus protocol](https://tus.io/protocols/resumable-upload): the requests, headers, and rules behind this implementation.
+- [Cloudflare Stream's resumable upload guide](https://developers.cloudflare.com/stream/uploading-videos/resumable-uploads/): how Stream uses tus, including its own chunk-size rules.
+- [How Cloudflare Streams](https://blog.cloudflare.com/how-cloudflare-streams/): an earlier look at how Stream was built and where tus fits in.
+- [tusd](https://github.com/tus/tusd): the official Go reference server for tus.
+- [The *Moove* repository](https://github.com/theolujay/resumable-upload): the Go server, Uppy frontend, tests, and instructions to try it yourself.
