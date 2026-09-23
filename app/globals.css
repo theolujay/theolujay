@@ -136,8 +136,47 @@ a:focus-visible {
   margin: 0;
 }
 
+.intro .intro-role {
+  margin: 0 0 0.5rem;
+  color: var(--bright);
+  font-size: clamp(1.2rem, 3vw, 1.55rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.3;
+}
+
 .intro em {
   color: var(--bright);
+}
+
+.intro-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+}
+
+.action-link {
+  display: inline-flex;
+  min-height: 2.6rem;
+  align-items: center;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid var(--line);
+  color: var(--bright);
+  font-size: 0.82rem;
+  text-decoration: none;
+}
+
+.action-link-primary {
+  border-color: var(--cobalt);
+  background: var(--cobalt);
+  color: var(--bright) !important;
+}
+
+.action-link-primary:hover,
+.action-link-primary:focus-visible {
+  border-color: var(--cobalt-readable);
+  background: color-mix(in srgb, var(--cobalt) 82%, white);
 }
 
 .content-section {
@@ -197,6 +236,73 @@ a:focus-visible {
 
 .entry-key {
   color: var(--muted);
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-card {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.project-card:hover {
+  border-color: var(--faint);
+}
+
+.project-card h3 {
+  margin: 0;
+  color: var(--bright);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.project-summary {
+  margin: 0;
+  color: var(--soft);
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-tags li {
+  padding: 0.08rem 0.4rem;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.68rem;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-top: auto;
+  padding-top: 0.15rem;
+  font-size: 0.8rem;
+}
+
+.project-links a {
+  color: var(--cobalt-readable);
 }
 
 .entry-list a,
@@ -707,6 +813,10 @@ footer {
     grid-template-columns: 1fr;
     gap: 0.05rem;
     padding-block: 0.55rem;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
   }
 
   .note-list li {

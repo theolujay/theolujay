@@ -3,9 +3,15 @@ import type { ReactNode } from 'react';
 import { TrackedLink } from './tracked-link';
 
 const navigation = [
+  { label: 'work', href: '/#work' },
   { label: 'notes', href: '/notes' },
   { label: 'posts', href: '/posts' },
   { label: 'articles', href: '/articles' },
+  {
+    label: 'resume',
+    href: '/resume.pdf',
+    download: 'Joseph-Ezekiel-Software-Engineer-Resume.pdf',
+  },
   { label: 'github', href: '/github?from=site-nav', outbound: true },
   { label: 'linkedin', href: '/linkedin?from=site-nav', outbound: true },
   { label: 'twitter', href: '/x?from=site-nav', outbound: true },
@@ -31,6 +37,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
                 <TrackedLink
                   key={link.label}
                   href={link.href}
+                  download={link.download}
                   event={
                     link.outbound
                       ? 'outbound_link_clicked'

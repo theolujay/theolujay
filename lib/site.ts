@@ -4,7 +4,7 @@ export const SITE_URL = 'https://theolujay.dev';
 export const SITE_NAME = 'Olujay';
 export const AUTHOR_NAME = 'Joseph Ezekiel';
 export const SITE_DESCRIPTION =
-  'Joseph Ezekiel is a software engineer writing about backend systems, distributed systems, networking, and the things he learns while building.';
+  'Joseph Ezekiel is a backend and platform engineer focused on distributed systems, networking, infrastructure, and reliability.';
 
 export const DEFAULT_SOCIAL_IMAGE = {
   url: '/og.png',

@@ -7,7 +7,7 @@ const personSchema = {
   '@type': 'Person',
   name: 'Joseph Ezekiel',
   alternateName: 'Olujay',
-  jobTitle: 'Software Engineer',
+  jobTitle: 'Backend & Platform Engineer',
   homeLocation: {
     '@type': 'Place',
     name: 'Lagos, Nigeria',
@@ -19,7 +19,7 @@ const personSchema = {
   ],
   worksFor: {
     '@type': 'Organization',
-    name: 'Verboheit Consulting',
+    name: 'Retreev',
   },
   knowsAbout: [
     'Distributed systems',
@@ -29,6 +29,62 @@ const personSchema = {
     'Photography',
   ],
 };
+
+const featuredProjects = [
+  {
+    slug: 'appa',
+    title: 'Appa',
+    summary:
+      'A self-hosted deployment platform that provisions VPS fleets with Ansible and deploys apps from Git or local source using Railpack, BuildKit, and Caddy.',
+    technologies: ['Go', 'Ansible', 'BuildKit', 'Caddy'],
+    links: [
+      {
+        label: 'GitHub ↗',
+        href: 'https://github.com/theolujay/appa',
+        destination: 'appa_github',
+        external: true,
+      },
+    ],
+  },
+  {
+    slug: 'resumable-upload',
+    title: 'Resumable Upload Server',
+    summary:
+      'A Go server implementing tus uploads, including offset validation, incremental PATCH requests, and recovery after interrupted transfers.',
+    technologies: ['Go', 'HTTP', 'tus'],
+    links: [
+      {
+        label: 'GitHub ↗',
+        href: 'https://github.com/theolujay/resumable-upload',
+        destination: 'resumable_upload_github',
+        external: true,
+      },
+      {
+        label: 'Read the article →',
+        href: '/articles/resumable-upload',
+        destination: 'resumable-upload',
+        external: false,
+      },
+    ],
+  },
+  {
+    slug: 'paystack-api-wrapper',
+    title: 'Paystack Python SDK',
+    summary:
+      'A type-safe Python client for Paystack APIs, built test-first with about 99% test coverage.',
+    technologies: ['Python', 'API design', 'Testing'],
+    links: [
+      {
+        label: 'GitHub ↗',
+        href: 'https://github.com/theolujay/paystack-api-wrapper',
+        destination: 'paystack_api_wrapper_github',
+        external: true,
+      },
+    ],
+  },
+];
+
+const resumeDownloadName = 'Joseph-Ezekiel-Software-Engineer-Resume.pdf';
 
 export default function Home() {
   const recentContent = getAllContent().slice(0, 4);
@@ -42,11 +98,32 @@ export default function Home() {
 
       <main id="content">
         <section className="intro" id="top" aria-label="Introduction">
+          <p className="intro-role">Backend &amp; Platform Engineer</p>
           <p>
-            I&apos;m a software engineer building backend systems. I enjoy
-            playing chess, writing, and watching really good sci-fi/thriller
-            films. You&apos;ve found my little corner.
+            Software engineer focused on distributed systems,
+            networking, infrastructure, and reliability. I&apos;m currently
+            building Retreev, and this is where I share what I learn along the
+            way.
           </p>
+          <div className="intro-actions">
+            <TrackedLink
+              href="/resume.pdf"
+              download={resumeDownloadName}
+              className="action-link action-link-primary"
+              event="navigation_clicked"
+              properties={{ destination: 'resume', placement: 'home_intro' }}
+            >
+              download resume ↓
+            </TrackedLink>
+            <TrackedLink
+              href="/hello?from=home-intro"
+              className="action-link"
+              event="outbound_link_clicked"
+              properties={{ destination: 'contact', placement: 'home_intro' }}
+            >
+              say hello →
+            </TrackedLink>
+          </div>
         </section>
 
         <section
@@ -85,26 +162,100 @@ export default function Home() {
 
         <section
           className="content-section"
-          id="work"
-          aria-labelledby="work-title"
+          id="experience"
+          aria-labelledby="experience-title"
         >
           <div className="section-heading">
-            <h2 id="work-title"># work</h2>
-            <span>~/work</span>
+            <h2 id="experience-title"># experience</h2>
+            <span>~/experience</span>
           </div>
 
           <ul className="entry-list">
             <li>
-              <span className="entry-key">current →</span>
+              <span className="entry-key">Jun 2026 – now →</span>
               <div>
-                <strong>Verboheit Consulting</strong>
-                <p>I lead the technical team delivering solutions.</p>
+                <strong>Backend &amp; Platform Engineer, Retreev</strong>
+                <p>
+                  Building backend and image-indexing systems for an event
+                  photo platform; owning architecture, deployment, and
+                  production operations.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span className="entry-key">Oct 2024 – May 2026 →</span>
+              <div>
+                <strong>Software Engineer, Verboheit Consulting</strong>
+                <p>
+                  Built backend services for a national mathematics competition,
+                  including exams, scoring, staff workflows, and notifications.
+                </p>
               </div>
             </li>
             <li>
               <span className="entry-key">before →</span>
               <span>industrial automation engineering</span>
             </li>
+          </ul>
+        </section>
+
+        <section
+          className="content-section"
+          id="work"
+          aria-labelledby="work-title"
+        >
+          <div className="section-heading">
+            <h2 id="work-title"># selected projects</h2>
+            <span>~/work</span>
+          </div>
+
+          <ul className="project-grid">
+            {featuredProjects.map((project) => (
+              <li key={project.slug}>
+                <article className="project-card">
+                  <h3>{project.title}</h3>
+                  <p className="project-summary">{project.summary}</p>
+                  <ul
+                    className="project-tags"
+                    aria-label={`Technologies used in ${project.title}`}
+                  >
+                    {project.technologies.map((technology) => (
+                      <li key={technology}>{technology}</li>
+                    ))}
+                  </ul>
+                  <div className="project-links">
+                    {project.links.map((link) => (
+                      <TrackedLink
+                        key={link.destination}
+                        href={link.href}
+                        event={
+                          link.external
+                            ? 'outbound_link_clicked'
+                            : 'content_selected'
+                        }
+                        properties={
+                          link.external
+                            ? {
+                                destination: link.destination,
+                                placement: 'home_project',
+                              }
+                            : {
+                                content_kind: 'article',
+                                content_slug: link.destination,
+                                source: 'home_project',
+                              }
+                        }
+                        {...(link.external
+                          ? { target: '_blank', rel: 'noreferrer' }
+                          : {})}
+                      >
+                        {link.label}
+                      </TrackedLink>
+                    ))}
+                  </div>
+                </article>
+              </li>
+            ))}
           </ul>
         </section>
 

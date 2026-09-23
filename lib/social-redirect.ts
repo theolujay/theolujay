@@ -6,7 +6,7 @@ export const socialDestinations = {
   hello: 'https://x.com/i/chat/906146874-2070815243052146688',
   linkedin: 'https://www.linkedin.com/in/theolujay',
   peakd: 'https://peakd.com/@olujay',
-  resume: 'https://resume.theolujay.dev',
+  resume: '/resume.pdf',
   retreev: 'https://retreev.app',
   twitter: 'https://x.com/theolujay',
   x: 'https://x.com/theolujay',
