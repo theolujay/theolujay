@@ -9,7 +9,7 @@ const navigation = [
   { label: 'articles', href: '/articles' },
   {
     label: 'resume',
-    href: '/resume.pdf',
+    href: '/software-engineering-resume.pdf',
     download: 'Joseph-Ezekiel-Software-Engineer-Resume.pdf',
   },
   { label: 'github', href: '/github?from=site-nav', outbound: true },

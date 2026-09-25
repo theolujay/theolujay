@@ -107,7 +107,7 @@ export default function Home() {
           </p>
           <div className="intro-actions">
             <TrackedLink
-              href="/resume.pdf"
+              href="/software-engineering-resume.pdf"
               download={resumeDownloadName}
               className="action-link action-link-primary"
               event="navigation_clicked"
