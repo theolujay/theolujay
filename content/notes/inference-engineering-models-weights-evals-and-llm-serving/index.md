@@ -5,7 +5,7 @@ tags: [inference, llm, machine-learning]
 draft: false
 ---
 
-I found an interesting book by Philip Kiely called [*Inference Engineering*](https://x.com/philipkiely/status/2025994823891914795?s=20) and started reading it. Here are some notes so far.
+I found an interesting book by Philip Kiely titled [*Inference Engineering*](https://x.com/philipkiely/status/2025994823891914795?s=20) and started reading it. Here are some notes so far.
 
 ## Models and weights
 
