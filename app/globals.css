@@ -366,11 +366,15 @@ footer a {
 }
 
 .content-list li {
+  border-left: 2px solid var(--line);
+}
+
+.content-list-item {
   display: grid;
   grid-template-columns: 8.3rem minmax(0, 1fr);
   gap: 0.8rem;
   padding: 0.8rem;
-  border-left: 2px solid var(--line);
+  text-decoration: none;
 }
 
 .content-list li:hover {
@@ -387,7 +391,11 @@ footer a {
 
 .content-list a {
   color: var(--bright);
+}
+
+.content-list-item > div > span {
   font-weight: 600;
+  text-decoration: underline;
   text-decoration-color: var(--cobalt-readable);
 }
 
@@ -823,7 +831,7 @@ footer {
     padding-inline: 0.65rem;
   }
 
-  .content-list li {
+  .content-list-item {
     grid-template-columns: 1fr;
     gap: 0.1rem;
     padding-inline: 0.65rem;

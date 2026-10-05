@@ -46,21 +46,22 @@ export function CollectionPage({ kind }: { kind: ContentKind }) {
           <ol className="content-list">
             {items.map((item) => (
               <li key={item.slug}>
-                <time dateTime={item.date}>{formatContentDate(item.date)}</time>
-                <div>
-                  <TrackedLink
-                    href={item.url}
-                    event="content_selected"
-                    properties={{
-                      content_kind: item.kind,
-                      content_slug: item.slug,
-                      source: 'collection_list',
-                    }}
-                  >
-                    {item.title}
-                  </TrackedLink>
-                  <p>{item.summary}</p>
-                </div>
+                <TrackedLink
+                  className="content-list-item"
+                  href={item.url}
+                  event="content_selected"
+                  properties={{
+                    content_kind: item.kind,
+                    content_slug: item.slug,
+                    source: 'collection_list',
+                  }}
+                >
+                  <time dateTime={item.date}>{formatContentDate(item.date)}</time>
+                  <div>
+                    <span>{item.title}</span>
+                    <p>{item.summary}</p>
+                  </div>
+                </TrackedLink>
               </li>
             ))}
           </ol>
