@@ -1,6 +1,7 @@
 ---
 title: "Inference Engineering: Models, Weights, Evals, and LLM Serving"
 date: 2026-10-05
+summary: Notes on inference engineering, from model weights and evaluation to LLM serving, runtimes, and infrastructure.
 tags: [inference, llm, machine-learning]
 draft: false
 ---
