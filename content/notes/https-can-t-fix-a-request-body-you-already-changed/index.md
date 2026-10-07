@@ -9,7 +9,7 @@ tags:
 draft: false
 ---
 
-I read about an [explanation of a Go HTTP race](https://victoriametrics.com/blog/http-race-condition/) by VictoriaMetrics and a certain question popped up in my head: If a request body can mix old and new data in this case, wouldn’t HTTPS keep the old data unreadable? This was influenced by a statement from vadimalekseev:
+I read about an [explanation of a Go HTTP race](https://victoriametrics.com/blog/http-race-condition/) by VictoriaMetrics and a certain question popped up in my head: If a request body can mix old and new data in this case, wouldn’t HTTPS keep the old data unreadable? This was influenced by a statement from [vadimalekseev](https://github.com/golang/go/issues/81445#issuecomment-5872055368):
 
 > It is a major security risk for proxies that use http.Client like this.
 
