@@ -58,8 +58,6 @@ func main() {
 	copy(buf, bytes.Repeat([]byte("B"), len(buf)))
 }
 ```
-<!--Attribute the source to the GitHub issuee-->
-
 From the example above, the body is a reader over `buf`, a byte slice filled with `A`s. Because the server had already responded (with `200 OK`), `readLoop` for that returns, but `writeLoop` isn't aware of this and keeps sending. In the middle of all that, we change `buf` from `A`s to `B`s. Because `writeLoop` is sending in chunks, by the time this switcheroo is done, it just continues from where it knows it stopped with the `B`s. Now we have a jumble of old and new bytes.
 
 The bytes TLS encrypts are the bytes the transport (from client to server) managed to read. The server decrypts them normally, and may receive a body like `AAAA…BBBB`. So we see, TLS did its job. Nothing on the network has altered the encrypted traffic. The inconsistency happened earlier, at the client, inside `buf` in our example.
