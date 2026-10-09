@@ -9,34 +9,34 @@ tags:
 draft: false
 ---
 
-I read about an [explanation of a Go HTTP race](https://victoriametrics.com/blog/http-race-condition/) by VictoriaMetrics and a certain question popped up in my head: If a request body can mix old and new data in this case, wouldn’t HTTPS keep the old data unreadable? This was influenced by a statement from [vadimalekseev](https://github.com/golang/go/issues/81445#issuecomment-5872055368):
+I read [an explanation of a Go HTTP race](https://victoriametrics.com/blog/http-race-condition/) by VictoriaMetrics, and a question popped into my head: If a request body can mix old and new data in this situation, wouldn’t HTTPS keep the old data unreadable? The question was prompted by a statement from [vadimalekseev](https://github.com/golang/go/issues/81445#issuecomment-5872055368):
 
 > It is a major security risk for proxies that use http.Client like this.
 
 I wondered what security risk this could be.
 
-The straight-up answer is no. HTTPS protects the connection between the client and server, but not a request body from changes made by the client before the body is sent.
+The short answer is no. HTTPS protects the connection between the client and server, but it cannot protect a request body from changes made by the client before the body is sent.
 
 ## Where the mix happens
 
-Calling `http.Post` might look something like, "send this body, give me the response." What really happens under the hood is that there are two Go routines spawned to fulfil that request, `writeLoop` to send the request body and `readLoop` waiting for the response. The server could respond using the request line and the headers alone and the call can return before the body is completely sent.
+Calling `http.Post` might seem like a simple instruction: “Send this body and give me the response.” Under the hood, two goroutines handle the request: `writeLoop` sends the request body, while `readLoop` waits for the response. The server can respond using only the request line and headers, so `http.Post` may return before the body has been completely sent.
 
 ```go
 // Source: https://github.com/golang/go/issues/81445
 func main() {
 	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		// without this, http.Server reads request body before sending the response
+		// Without this, http.Server reads the request body before sending the response.
 		_ = http.NewResponseController(w).EnableFullDuplex()
 		w.WriteHeader(http.StatusOK)
 		w.(http.Flusher).Flush() // send response to client
-		// read request body in "background"
+		// Read the request body after sending the response.
 		body, _ := io.ReadAll(r.Body)
-		// an array to record what's been seen in the body
+		// Record how many times each byte value appears in the body.
 		stats := [256]int{}
 		for _, v := range body {
 			stats[v]++
 		}
-		// now let's check what we found
+		// Print the byte values that appeared in the body.
 		for c, count := range stats {
 			if count == 0 {
 				continue
@@ -53,28 +53,28 @@ func main() {
 	_ = resp.Body.Close()
 	fmt.Println("client: got response", resp.Status)
 	// <reuse buf for the next request>
-	// note, the backing-array is what io.ReadAll will continue read
-	// even after http.Post has returned (from the 200 OK)
+	// The request reader still references buf's backing array, so the
+	// transport may continue reading it after http.Post returns the response.
 	copy(buf, bytes.Repeat([]byte("B"), len(buf)))
 }
 ```
-From the example above, the body is a reader over `buf`, a byte slice filled with `A`s. Because the server had already responded (with `200 OK`), `readLoop` for that returns, but `writeLoop` isn't aware of this and keeps sending. In the middle of all that, we change `buf` from `A`s to `B`s. Because `writeLoop` is sending in chunks, by the time this switcheroo is done, it just continues from where it knows it stopped with the `B`s. Now we have a jumble of old and new bytes.
+In this example, the request body is a reader over `buf`, a byte slice filled with `A`s. Once the server responds with `200 OK`, the client's `readLoop` can return while the `writeLoop` is still sending the request body. If we change `buf` from `A`s to `B`s during that time, the transport may read some bytes before the change and others after it. The result can be a mixture of old and new data.
 
-The bytes TLS encrypts are the bytes the transport (from client to server) managed to read. The server decrypts them normally, and may receive a body like `AAAA…BBBB`. So we see, TLS did its job. Nothing on the network has altered the encrypted traffic. The inconsistency happened earlier, at the client, inside `buf` in our example.
+TLS encrypts the bytes the client transport reads from the request body. The server decrypts them normally and may receive a body like `AAAA…BBBB`. TLS did its job: nothing on the network altered the encrypted traffic. The inconsistency happened earlier, at the client, in `buf`.
 
 ## When does it matter?
 
-If a server or proxy is not going to act on the body, say in the case of a `401 Unauthorized` situation, then the malformed body may not matter if not used. It would matter if it reads and acts on the body; a retried request migh reach a backend with a payload assembled from two attempts. This can mean a rejected upload, bad data, or an unintended action if the mixed body is still valid and changes some operation.
+If a server or proxy does not act on the body -- for example, when returning `401 Unauthorized` -- the malformed body may not matter if it is ignored. The risk is greater if the body is read and acted on. For example, a retry might reach a backend with a payload assembled from two attempts. That could result in a rejected upload, corrupted data, or an unintended action if the mixed body is still valid and changes the requested operation.
 
-This race condition is what they discovered at VictoriaMetrics with Go race detector. It warns about the unsynchronized [memory] access, but it does not on its own prove an exploitable bug. The path the bytes take after the race matters.
+The Go race detector uncovered this race during VictoriaMetrics' investigation. It reports unsynchronized memory access, but that alone does not prove there is an exploitable bug. The path the bytes take after the race matters.
 
-The [write-up](https://victoriametrics.com/blog/http-race-condition/) goes way deeper into the detail and also shows two outcomes: a race they considered harmless because the leftover body was ignored, and a proxy case where a shared reader’s state could affect a retry sent to a backend. There are discussions under [the Go issue](https://github.com/golang/go/issues/81445) about the asynchronous request-body close and the difficulty of knowing when it is safe to reuse that memory.
+The [write-up](https://victoriametrics.com/blog/http-race-condition/) goes into much more detail and describes two outcomes: a race considered harmless because the leftover body was ignored, and a proxy case where a shared reader's state could affect a retry sent to a backend. The [Go issue](https://github.com/golang/go/issues/81445) also discusses the asynchronous request-body close and the difficulty of knowing when it is safe to reuse that memory.
 
 ## The practical rule
 
-Something I'm keeping in mind is: *keep the memory behind a request body unchanged until the transport has finished reading it. If there's a need to retry, give each request its own reader, and avoid mutating or pooling the underlying bytes while an earlier request may still use them.*
+*Keep the memory backing a request body unchanged until the transport has finished reading it. If you need to retry, give each request its own reader, and avoid mutating or pooling the underlying bytes while an earlier request may still be using them.*
 
-One small gotcha in my reproduction: I wrote the method value without calling it:
+One small gotcha in my reproduction: I initially wrote the method value without calling it:
 
 ```go
 _ = http.NewResponseController(w).EnableFullDuplex
