@@ -5,6 +5,7 @@ import rehypeHighlight from 'rehype-highlight';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import { parse as parseYaml } from 'yaml';
+import { ReleaseTrace } from '@/components/release-trace';
 import { ResumableUploadMentalModel } from '@/components/resumable-upload-mental-model';
 
 export const contentKinds = ['notes', 'posts', 'articles'] as const;
@@ -19,6 +20,7 @@ export type ContentItem = {
   tags: string[];
   draft: boolean;
   cover?: string;
+  socialImage?: string;
   body: string;
   sourcePath: string;
   url: string;
@@ -201,6 +203,10 @@ function parseItem(sourcePath: string, source: string): ContentItem {
     fail(sourcePath, 'summary must be a string');
   }
 
+  if (data.socialImage != null && typeof data.socialImage !== 'string') {
+    fail(sourcePath, 'socialImage must be a string path');
+  }
+
   const cover =
     typeof data.cover === 'string' && data.cover
       ? resolveAsset(sourcePath, data.cover)
@@ -223,6 +229,7 @@ function parseItem(sourcePath: string, source: string): ContentItem {
     tags: tags.map((tag) => tag.trim()).filter(Boolean),
     draft: data.draft === true,
     cover,
+    socialImage: typeof data.socialImage === 'string' ? resolveAsset(sourcePath, data.socialImage) : undefined,
     body,
     sourcePath,
     url: `/${kind}/${slug}`,
@@ -267,7 +274,7 @@ export async function renderContent(item: ContentItem) {
   const source = validateAndResolveImages(item.body, item.sourcePath);
   const { content } = await compileMDX({
     source,
-    components: { ResumableUploadMentalModel },
+    components: { ResumableUploadMentalModel, ReleaseTrace },
     options: {
       mdxOptions: {
         remarkPlugins: [remarkGfm],

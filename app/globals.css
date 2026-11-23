@@ -443,6 +443,12 @@ footer a {
   border: 1px solid var(--line);
 }
 
+
+.prose sub {
+  font-size: 0.75em;
+  vertical-align: sub;
+}
+
 .article-cover {
   margin: 0 0 2.5rem;
 }

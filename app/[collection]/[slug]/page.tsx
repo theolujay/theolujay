@@ -30,8 +30,9 @@ export async function generateMetadata({
 
   if (!item) return {};
 
-  const image = item.cover
-    ? { url: new URL(item.cover, SITE_URL).toString(), alt: item.title }
+  const socialImage = item.socialImage ?? item.cover;
+  const image = socialImage
+    ? { url: new URL(socialImage, SITE_URL).toString(), alt: item.title }
     : {
         url: new URL(
           `/social-image/${encodeURIComponent(collection)}/${encodeURIComponent(slug)}`,

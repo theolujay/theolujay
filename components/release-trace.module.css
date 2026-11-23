@@ -1,0 +1,104 @@
+.trace {
+  margin: 2rem 0;
+  padding: clamp(1rem, 4vw, 2rem);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--font-geist-mono), monospace;
+}
+.trace figcaption {
+  color: var(--bright);
+  font-weight: 650;
+}
+.trace figcaption span,
+.trace small {
+  color: var(--muted);
+  font-weight: 400;
+}
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1rem 0 1.25rem;
+}
+.controls button {
+  padding: 0.25rem 0.65rem;
+  border: 1px solid var(--line);
+  font: inherit;
+  font-size: 0.82rem;
+  color: var(--soft);
+  cursor: pointer;
+}
+.controls button[aria-pressed='true'],
+.controls button:focus-visible {
+  color: var(--cobalt-readable);
+  border-color: currentColor;
+}
+.lanes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: 1rem;
+}
+.lanes section {
+  border-top: 1px solid var(--line);
+  padding-top: 0.8rem;
+}
+.lanes small {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.7rem;
+}
+.lanes strong {
+  display: block;
+}
+.trace .lanes ol {
+  list-style: none;
+  margin: 0.85rem 0 0;
+  padding: 0;
+}
+.trace .lanes li {
+  position: relative;
+  margin: 0;
+  padding: 0 0 0.6rem 1.25rem;
+  font-size: 0.85rem;
+  color: var(--soft);
+}
+.lanes li:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 0.6rem;
+  height: 100%;
+  border-left: 1px solid var(--line);
+}
+.lanes li::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.45rem;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--muted);
+}
+.lanes section:last-child li::after {
+  background: var(--cobalt-readable);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .lanes li::after {
+    animation: checkpoint 0.55s ease-out calc(var(--step) * 0.25s) both;
+  }
+  @keyframes checkpoint {
+    from {
+      transform: scale(0.55);
+      opacity: 0.4;
+    }
+    55% {
+      transform: scale(1.5);
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}
