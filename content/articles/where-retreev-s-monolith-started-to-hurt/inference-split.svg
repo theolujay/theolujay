@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 316" font-family="ui-monospace, monospace" font-size="17" fill="#e6e9f2">
+  <title>Moving inference out of the monolith</title>
+  <rect width="520" height="316" fill="#0b0f1a"/>
+  <text x="24" y="38" fill="#91a7ff">01 / One build</text>
+  <rect x="24" y="54" width="472" height="76" fill="#111725" stroke="#44506a"/>
+  <text x="40" y="85">App · Worker · Scheduler</text>
+  <text x="40" y="111" fill="#aeb5c5">Inference bundled inside</text>
+  <text x="24" y="179" fill="#91a7ff">02 / Inference split out</text>
+  <rect x="24" y="202" width="217" height="80" fill="#111725" stroke="#44506a"/>
+  <text x="39" y="235">App · Worker</text><text x="39" y="261">Scheduler</text>
+  <path d="M241 242h60m-8-7 8 7-8 7" fill="none" stroke="#91a7ff" stroke-width="2"/>
+  <g fill="#111725" stroke="#91a7ff"><rect x="330" y="195" width="160" height="74"/><rect x="322" y="203" width="160" height="74"/><rect x="314" y="211" width="160" height="74"/></g>
+  <text x="330" y="243">Inference</text><text x="330" y="266" fill="#aeb5c5">replicas</text>
+</svg>
